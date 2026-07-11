@@ -1,8 +1,8 @@
 # Headless Core FE Design System
 
-접근성, 상태 관리, 키보드 인터랙션을 직접 구현해보는 학습형 프론트엔드 디자인 시스템입니다.
+접근성, 상태 관리, 키보드 인터랙션을 직접 구현하는 프론트엔드 디자인 시스템입니다.
 
-이 프로젝트는 완성된 UI 라이브러리를 가져다 쓰는 것보다, Radix UI 같은 headless primitive가 내부에서 해결하는 문제를 직접 구현하며 이해하는 것을 목표로 합니다. 단, 모든 컴포넌트를 무리하게 처음부터 만들기보다 난이도를 단계적으로 올립니다.
+이 프로젝트는 headless primitive를 직접 구현하고, 그 위에 토큰 기반 styled component layer를 구성합니다. 컴포넌트는 단계별로 추가하며 Storybook에서 상태, 접근성, 인터랙션을 검증합니다.
 
 ## 목표
 
@@ -10,7 +10,7 @@
 - primitive token에서 semantic token으로 이어지는 SSOT 디자인 토큰 구조를 유지합니다.
 - headless layer 위에 Tailwind 기반 styled component layer를 얹습니다.
 - Storybook에서 컴포넌트 상태, 접근성, 인터랙션을 검증합니다.
-- 복잡한 컴포넌트는 구현 난이도와 접근성 리스크를 문서화하며 점진적으로 도전합니다.
+- 복잡한 컴포넌트는 구현 범위와 접근성 요구사항을 문서화한 뒤 단계적으로 추가합니다.
 
 ## 구조
 
@@ -63,9 +63,9 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 컴포넌트에서는 raw hex나 primitive class를 직접 쓰지 않습니다. 색상을 바꿀 때는 `src/tokens/color-tokens.json`을 수정한 뒤 `npm run tokens:build`를 실행합니다.
 
-## 컴포넌트 로드맵
+## 컴포넌트 진행 단계
 
-### 1단계: 직접 headless 구현
+### Step 1. Headless core
 
 - [ ] `useControllableState`
 - [ ] `Toggle`
@@ -73,7 +73,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [ ] `Tabs`
 - [ ] `Accordion`
 
-### 2단계: styled layer 연결
+### Step 2. Styled components
 
 - [x] `Button`
 - [x] `Badge`
@@ -85,7 +85,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [ ] `Tabs`
 - [ ] `Accordion`
 
-### 3단계: 고난도 headless 컴포넌트 도전
+### Step 3. Overlay and advanced primitives
 
 - [ ] `Dialog`
 - [ ] `Popover`
@@ -93,7 +93,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [ ] `Select`
 - [ ] `Tooltip`
 
-고난도 컴포넌트는 focus trap, focus return, portal, outside click, escape key, scroll lock, screen reader 동작까지 고려해야 하므로 마지막 단계에서 구현합니다.
+이 단계의 컴포넌트는 focus trap, focus return, portal, outside click, escape key, scroll lock, screen reader 동작을 포함해 구현합니다.
 
 ## 현재 포함된 컴포넌트
 
