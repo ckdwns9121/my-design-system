@@ -12,14 +12,14 @@
 - Avoid: One-off hex values in components, decorative gradients, palette choices outside tokens.
 
 ## Product goals
-- Goals: Build a reusable personal design system with Tailwind and Storybook.
-- Non-goals: Full production app UX, marketing landing page, external package publishing at this stage.
-- Success signals: Components consume semantic tokens only; Storybook shows primitive and semantic color usage clearly.
+- Goals: Build a learning-first FE design system by implementing headless primitives directly, then layering token-driven styled components on top.
+- Non-goals: Full production app UX, marketing landing page, external package publishing at this stage, copying shadcn implementations.
+- Success signals: Headless primitives expose accessible behavior without styling decisions; styled components consume semantic tokens only; Storybook proves behavior and styling.
 
 ## Personas and jobs
-- Primary personas: Frontend developer maintaining a personal component library.
-- User jobs: Inspect tokens, reuse components, extend variants without breaking consistency.
-- Key contexts of use: Local development, Storybook review, future app prototyping.
+- Primary personas: Frontend developer studying design-system internals and accessible component behavior.
+- User jobs: Inspect tokens, implement headless state/ARIA patterns, reuse styled wrappers, extend variants without breaking consistency.
+- Key contexts of use: Local development, Storybook review, future app prototyping, portfolio explanation.
 
 ## Information architecture
 - Primary navigation: Storybook component and token stories.
@@ -28,8 +28,9 @@
 
 ## Design principles
 - Principle 1: Token changes must flow from primitive tokens to semantic aliases to components.
-- Principle 2: Components should express intent through semantic names, not raw palette names.
-- Tradeoffs: Primitive tokens remain visible in palette documentation, but normal component styling uses semantic tokens.
+- Principle 2: Headless primitives own behavior and accessibility, not visual style.
+- Principle 3: Styled components express intent through semantic names, not raw palette names.
+- Tradeoffs: Simple components may stay directly styled until a real headless behavior layer is useful; complex overlay/menu components should be attempted after lower-risk primitives.
 
 ## Visual language
 - Color: Primary is green. `src/tokens/color-tokens.json` is the color SSOT; generated CSS is derived output.
@@ -42,8 +43,9 @@
 ## Components
 - Existing components to reuse: `Button`, `Badge`, `Card`, `TextField`.
 - New/changed components: `ColorPalette` documents primitive and semantic color tokens.
+- Target headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, then `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges; input helper/error states.
-- Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases. Components consume generated semantic Tailwind classes.
+- Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases. Headless components own state/ARIA. Styled components consume generated semantic Tailwind classes.
 
 ## Accessibility
 - Target standard: WCAG AA-oriented defaults.
@@ -73,6 +75,7 @@
 ## Implementation constraints
 - Framework/styling system: React, TypeScript, Vite, Tailwind CSS v4, Storybook.
 - Design-token constraints: No component-level raw hex colors. Color CSS is generated from `src/tokens/color-tokens.json`.
+- Headless constraints: Headless primitives should support controlled/uncontrolled usage where applicable, expose ARIA state, and avoid Tailwind or token-specific classes.
 - Performance constraints: No runtime token generation in the browser.
 - Compatibility constraints: Local Node/npm workflow.
 - Test/screenshot expectations: Storybook story tests must keep one concrete CSS computed-style check.

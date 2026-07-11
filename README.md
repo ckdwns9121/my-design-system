@@ -1,25 +1,59 @@
-# My Design System
+# Headless Core FE Design System
 
-Tailwind CSS와 Storybook으로 만든 개인 디자인 시스템 시작 프로젝트입니다.
+접근성, 상태 관리, 키보드 인터랙션을 직접 구현해보는 학습형 프론트엔드 디자인 시스템입니다.
 
-## Scripts
+이 프로젝트는 완성된 UI 라이브러리를 가져다 쓰는 것보다, Radix UI 같은 headless primitive가 내부에서 해결하는 문제를 직접 구현하며 이해하는 것을 목표로 합니다. 단, 모든 컴포넌트를 무리하게 처음부터 만들기보다 난이도를 단계적으로 올립니다.
 
-- `npm run dev` - Vite 개발 서버
-- `npm run storybook` - Storybook 컴포넌트 문서
-- `npm run build` - TypeScript + Vite 프로덕션 빌드
-- `npm run build-storybook` - 정적 Storybook 빌드
-- `npx vitest --project storybook run` - Storybook story 테스트
+## 목표
 
-## Structure
+- headless primitive를 직접 설계하고 구현합니다.
+- primitive token에서 semantic token으로 이어지는 SSOT 디자인 토큰 구조를 유지합니다.
+- headless layer 위에 Tailwind 기반 styled component layer를 얹습니다.
+- Storybook에서 컴포넌트 상태, 접근성, 인터랙션을 검증합니다.
+- 복잡한 컴포넌트는 구현 난이도와 접근성 리스크를 문서화하며 점진적으로 도전합니다.
 
-- `src/index.css` - Tailwind import와 디자인 토큰
-- `src/tokens/color-tokens.json` - color token SSOT
-- `src/tokens/generated/colors.css` - SSOT에서 생성되는 Tailwind color token CSS
-- `scripts/generate-color-tokens.mjs` - token CSS 생성 스크립트
-- `src/components` - 재사용 컴포넌트와 colocated stories
-- `.storybook/preview.tsx` - Storybook 전역 CSS 및 공통 파라미터
+## 구조
 
-## Token Flow
+```txt
+src/tokens
+  color-tokens.json
+  generated/colors.css
+
+src/headless
+  hooks
+  primitives
+
+src/components
+  styled components
+  *.stories.tsx
+```
+
+현재는 `src/headless` 레이어를 만들기 전 단계이며, 토큰 기반 styled component와 Color Palette 문서화가 준비되어 있습니다.
+
+## 레이어 원칙
+
+```txt
+headless layer
+- 상태 관리
+- ARIA 속성
+- 키보드 인터랙션
+- controlled / uncontrolled API
+- 스타일 없음 또는 최소 className 전달
+
+styled layer
+- Tailwind class
+- semantic token 사용
+- size / variant
+- Storybook 문서와 테스트
+```
+
+컴포넌트는 최종적으로 다음 흐름을 따릅니다.
+
+```txt
+primitive token -> semantic token -> headless primitive -> styled component -> Storybook
+```
+
+## 토큰 흐름
 
 Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
@@ -29,7 +63,60 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 컴포넌트에서는 raw hex나 primitive class를 직접 쓰지 않습니다. 색상을 바꿀 때는 `src/tokens/color-tokens.json`을 수정한 뒤 `npm run tokens:build`를 실행합니다.
 
-## Components
+## 컴포넌트 로드맵
 
-현재 포함된 컴포넌트는 `ColorPalette`, `Button`, `Badge`, `Card`, `TextField`입니다.
-새 컴포넌트는 `src/components` 아래에 컴포넌트와 `*.stories.tsx`를 함께 추가하면 됩니다.
+### 1단계: 직접 headless 구현
+
+- [ ] `useControllableState`
+- [ ] `Toggle`
+- [ ] `Checkbox`
+- [ ] `Tabs`
+- [ ] `Accordion`
+
+### 2단계: styled layer 연결
+
+- [x] `Button`
+- [x] `Badge`
+- [x] `Card`
+- [x] `TextField`
+- [x] `ColorPalette`
+- [ ] `Toggle`
+- [ ] `Checkbox`
+- [ ] `Tabs`
+- [ ] `Accordion`
+
+### 3단계: 고난도 headless 컴포넌트 도전
+
+- [ ] `Dialog`
+- [ ] `Popover`
+- [ ] `DropdownMenu`
+- [ ] `Select`
+- [ ] `Tooltip`
+
+고난도 컴포넌트는 focus trap, focus return, portal, outside click, escape key, scroll lock, screen reader 동작까지 고려해야 하므로 마지막 단계에서 구현합니다.
+
+## 현재 포함된 컴포넌트
+
+- `ColorPalette`: primitive/semantic 색상 토큰 문서화
+- `Button`: semantic token 기반 버튼
+- `Badge`: 상태와 primary tone 표시
+- `Card`: 패널 레이아웃
+- `TextField`: label, helper text, error state 포함 입력 필드
+
+## 스크립트
+
+- `npm run tokens:build` - SSOT 색상 토큰으로 Tailwind color CSS 생성
+- `npm run dev` - Vite 개발 서버
+- `npm run storybook` - Storybook 컴포넌트 문서
+- `npm run build` - TypeScript + Vite 프로덕션 빌드
+- `npm run build-storybook` - 정적 Storybook 빌드
+- `npm run lint` - Oxlint 실행
+- `npx vitest --project storybook run` - Storybook story 테스트
+
+## 구현 규칙
+
+- 컴포넌트에서 raw hex 값을 사용하지 않습니다.
+- 일반 컴포넌트 스타일은 primitive token이 아니라 semantic token을 사용합니다.
+- headless layer는 스타일 결정을 하지 않습니다.
+- styled layer는 headless layer의 상태와 ARIA를 유지한 채 시각 스타일만 추가합니다.
+- 새 컴포넌트는 Storybook story와 최소한의 interaction 또는 accessibility 검증을 함께 추가합니다.
