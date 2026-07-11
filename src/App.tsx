@@ -10,6 +10,7 @@ import {
 } from './components/Card'
 import { ColorPalette } from './components/ColorPalette'
 import { TextField } from './components/TextField'
+import { Toggle } from './components/Toggle'
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Badge tone="success">Success</Badge>
               <Badge tone="warning">Warning</Badge>
               <Badge tone="danger">Danger</Badge>
+              <Toggle defaultPressed>Toggle</Toggle>
             </CardContent>
           </Card>
 

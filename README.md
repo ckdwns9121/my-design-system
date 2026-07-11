@@ -68,7 +68,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 ### Step 1. Headless core
 
 - [x] `useControllableState`
-- [ ] `Toggle`
+- [x] `Toggle`
 - [ ] `Checkbox`
 - [ ] `Tabs`
 - [ ] `Accordion`
@@ -80,7 +80,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [x] `Card`
 - [x] `TextField`
 - [x] `ColorPalette`
-- [ ] `Toggle`
+- [x] `Toggle`
 - [ ] `Checkbox`
 - [ ] `Tabs`
 - [ ] `Accordion`

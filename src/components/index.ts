@@ -13,3 +13,5 @@ export {
 export { ColorPalette } from './ColorPalette'
 export { TextField } from './TextField'
 export type { TextFieldProps } from './TextField'
+export { Toggle } from './Toggle'
+export type { ToggleProps } from './Toggle'
