@@ -67,7 +67,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 ### Step 1. Headless core
 
-- [ ] `useControllableState`
+- [x] `useControllableState`
 - [ ] `Toggle`
 - [ ] `Checkbox`
 - [ ] `Tabs`

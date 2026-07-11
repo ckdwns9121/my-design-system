@@ -15,6 +15,19 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   test: {
     projects: [{
+      test: {
+        name: 'unit',
+        include: ['src/**/*.test.{ts,tsx}'],
+        browser: {
+          enabled: true,
+          headless: true,
+          provider: playwright({}),
+          instances: [{
+            browser: 'chromium'
+          }]
+        }
+      }
+    }, {
       extends: true,
       plugins: [
       // The plugin will run tests for the stories defined in your Storybook config
