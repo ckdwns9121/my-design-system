@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Typography } from './Typography'
 
 const meta = {
+  title: 'Foundation/Typography',
   component: Typography,
   tags: ['ai-generated'],
   parameters: {

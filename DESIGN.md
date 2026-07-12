@@ -22,8 +22,8 @@
 - Key contexts of use: Local development, Storybook review, future app prototyping, portfolio explanation.
 
 ## Information architecture
-- Primary navigation: Storybook component and token stories.
-- Core routes/screens: Vite demo app, component stories, token palette story.
+- Primary navigation: Storybook foundation docs, component stories, and token stories.
+- Core routes/screens: Vite demo app, Foundation/Docs, foundation stories, component stories.
 - Content hierarchy: Foundation first, then primitive components, then composed examples.
 
 ## Design principles
@@ -41,7 +41,7 @@
 - Imagery/iconography: None required for current token/component surfaces.
 
 ## Components
-- Existing foundation docs: `ColorPalette`, `Typography`, `Spacing`.
+- Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`.
 - Existing components to reuse: `Button`, `Badge`, `Card`, `TextField`, `Toggle`.
 - New/changed components: Foundation docs are separated from styled components under `src/foundation`.
 - Target headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, then `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`.

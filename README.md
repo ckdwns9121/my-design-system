@@ -114,6 +114,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 ## 현재 포함된 Foundation
 
+- `Docs`: foundation 기준과 token flow 문서
 - `ColorPalette`: primitive/semantic 색상 토큰 문서화
 - `Typography`: type scale과 semantic content token 문서화
 - `Spacing`: Tailwind 4px spacing scale 문서화

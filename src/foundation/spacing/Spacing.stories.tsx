@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Spacing } from './Spacing'
 
 const meta = {
+  title: 'Foundation/Spacing',
   component: Spacing,
   tags: ['ai-generated'],
   parameters: {

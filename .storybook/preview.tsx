@@ -3,6 +3,12 @@ import '../src/index.css'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ['Foundation', 'Components'],
+      },
+    },
+
     controls: {
       matchers: {
        color: /(background|color)$/i,
