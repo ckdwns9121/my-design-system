@@ -8,6 +8,14 @@ import {
   CardHeader,
   CardTitle,
 } from './components/card'
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from './components/table'
 import { TextField } from './components/text-field'
 import { Toggle } from './components/toggle'
 import { ColorPalette, Spacing, Typography } from './foundation'
@@ -48,6 +56,33 @@ function App() {
               <Badge tone="warning">Warning</Badge>
               <Badge tone="danger">Danger</Badge>
               <Toggle defaultPressed>Toggle</Toggle>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Table</CardTitle>
+              <CardDescription>네이티브 table semantics 위에 토큰 스타일을 입힙니다.</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>Name</TableHead>
+                    <TableHead>Status</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell className="font-medium text-content-strong">Toggle</TableCell>
+                    <TableCell>Ready</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium text-content-strong">Checkbox</TableCell>
+                    <TableCell>Next</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
             </CardContent>
           </Card>
 

@@ -42,7 +42,7 @@
 
 ## Components
 - Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`.
-- Existing components to reuse: `Button`, `Badge`, `Card`, `TextField`, `Toggle`.
+- Existing components to reuse: `Button`, `Badge`, `Card`, `Table`, `TextField`, `Toggle`.
 - New/changed components: Foundation docs are separated from styled components under `src/foundation`.
 - Target headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, then `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges; input helper/error states.
