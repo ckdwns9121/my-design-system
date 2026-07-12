@@ -23,12 +23,17 @@ src/headless
   hooks
   primitives
 
+src/foundation
+  color-palette
+  typography
+  spacing
+
 src/components
   styled components
   *.stories.tsx
 ```
 
-현재는 `src/headless` 레이어를 만들기 전 단계이며, 토큰 기반 styled component와 Color Palette 문서화가 준비되어 있습니다.
+현재 foundation 문서는 색상, 타이포그래피, spacing을 기준으로 구성되어 있습니다.
 
 ## 레이어 원칙
 
@@ -79,11 +84,16 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [x] `Badge`
 - [x] `Card`
 - [x] `TextField`
-- [x] `ColorPalette`
 - [x] `Toggle`
 - [ ] `Checkbox`
 - [ ] `Tabs`
 - [ ] `Accordion`
+
+### Step 2-1. Foundation
+
+- [x] `ColorPalette`
+- [x] `Typography`
+- [x] `Spacing`
 
 ### Step 3. Overlay and advanced primitives
 
@@ -97,11 +107,16 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 ## 현재 포함된 컴포넌트
 
-- `ColorPalette`: primitive/semantic 색상 토큰 문서화
 - `Button`: semantic token 기반 버튼
 - `Badge`: 상태와 primary tone 표시
 - `Card`: 패널 레이아웃
 - `TextField`: label, helper text, error state 포함 입력 필드
+
+## 현재 포함된 Foundation
+
+- `ColorPalette`: primitive/semantic 색상 토큰 문서화
+- `Typography`: type scale과 semantic content token 문서화
+- `Spacing`: Tailwind 4px spacing scale 문서화
 
 ## 스크립트
 

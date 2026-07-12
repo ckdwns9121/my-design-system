@@ -10,7 +10,6 @@ export {
   CardHeader,
   CardTitle,
 } from './card'
-export { ColorPalette } from './color-palette'
 export { TextField } from './text-field'
 export type { TextFieldProps } from './text-field'
 export { Toggle } from './toggle'

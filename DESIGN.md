@@ -4,7 +4,7 @@
 - Status: Active
 - Last refreshed: 2026-07-11
 - Primary product surfaces: React component library, Storybook documentation, Vite demo surface.
-- Evidence reviewed: `README.md`, `src/index.css`, `src/App.tsx`, `src/components/*`, `.storybook/preview.tsx`.
+- Evidence reviewed: `README.md`, `src/index.css`, `src/App.tsx`, `src/foundation/*`, `src/components/*`, `.storybook/preview.tsx`.
 
 ## Brand
 - Personality: Calm, practical, component-first, slightly fresh through a green primary palette.
@@ -24,7 +24,7 @@
 ## Information architecture
 - Primary navigation: Storybook component and token stories.
 - Core routes/screens: Vite demo app, component stories, token palette story.
-- Content hierarchy: Tokens first, then primitive components, then composed examples.
+- Content hierarchy: Foundation first, then primitive components, then composed examples.
 
 ## Design principles
 - Principle 1: Token changes must flow from primitive tokens to semantic aliases to components.
@@ -34,15 +34,16 @@
 
 ## Visual language
 - Color: Primary is green. `src/tokens/color-tokens.json` is the color SSOT; generated CSS is derived output.
-- Typography: System sans-serif through Tailwind theme token.
-- Spacing/layout rhythm: Tailwind spacing utilities with compact, dashboard-like layouts.
+- Typography: Documented in `src/foundation/typography`; system sans-serif through Tailwind theme token.
+- Spacing/layout rhythm: Documented in `src/foundation/spacing`; Tailwind 4px spacing scale with compact, dashboard-like layouts.
 - Shape/radius/elevation: 6-8px radii for controls and panels; subtle panel shadow only where framing helps.
 - Motion: Minimal transitions for hover/focus state changes.
 - Imagery/iconography: None required for current token/component surfaces.
 
 ## Components
-- Existing components to reuse: `Button`, `Badge`, `Card`, `TextField`.
-- New/changed components: `ColorPalette` documents primitive and semantic color tokens.
+- Existing foundation docs: `ColorPalette`, `Typography`, `Spacing`.
+- Existing components to reuse: `Button`, `Badge`, `Card`, `TextField`, `Toggle`.
+- New/changed components: Foundation docs are separated from styled components under `src/foundation`.
 - Target headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, then `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges; input helper/error states.
 - Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases. Headless components own state/ARIA. Styled components consume generated semantic Tailwind classes.

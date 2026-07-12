@@ -8,9 +8,9 @@ import {
   CardHeader,
   CardTitle,
 } from './components/card'
-import { ColorPalette } from './components/color-palette'
 import { TextField } from './components/text-field'
 import { Toggle } from './components/toggle'
+import { ColorPalette, Spacing, Typography } from './foundation'
 
 function App() {
   return (
@@ -33,6 +33,8 @@ function App() {
         </header>
 
         <ColorPalette />
+        <Typography />
+        <Spacing />
 
         <section className="grid gap-4 md:grid-cols-2">
           <Card>
