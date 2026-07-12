@@ -220,17 +220,19 @@ export const InteractiveGrid: Story = {
       name: /정렬 및 선택이 가능한 컴포넌트 그리드/i,
     })
     const componentHeader = canvas.getByRole('columnheader', { name: /component/i })
+    const componentSortButton = canvas.getByRole('button', { name: /component/i })
     const selectAll = canvas.getByRole('checkbox', { name: /select all rows/i })
 
     await expect(grid).toHaveAttribute('aria-multiselectable', 'true')
-    await expect(componentHeader).toHaveAttribute('aria-sort', 'none')
-    await expect(getComputedStyle(componentHeader).cursor).toBe('pointer')
+    await expect(componentHeader).not.toHaveAttribute('aria-sort')
+    await expect(getComputedStyle(componentSortButton).cursor).toBe('pointer')
 
-    await userEvent.click(componentHeader)
+    await userEvent.click(componentSortButton)
     await expect(componentHeader).toHaveAttribute('aria-sort', 'ascending')
+    await expect(grid.querySelectorAll('[aria-sort]')).toHaveLength(1)
     await expect(grid.querySelectorAll('tbody tr')[0]).toHaveTextContent('Button')
 
-    await userEvent.click(componentHeader)
+    await userEvent.click(componentSortButton)
     await expect(componentHeader).toHaveAttribute('aria-sort', 'descending')
     await expect(grid.querySelectorAll('tbody tr')[0]).toHaveTextContent('Toggle')
 
@@ -248,7 +250,10 @@ export const InteractiveGrid: Story = {
 
     selectAll.focus()
     await userEvent.keyboard('{ArrowRight}')
-    await expect(componentHeader).toHaveFocus()
+    await expect(componentSortButton).toHaveFocus()
+
+    await userEvent.keyboard('{Enter}')
+    await expect(componentHeader).toHaveAttribute('aria-sort', 'ascending')
 
     await userEvent.keyboard('{ArrowDown}')
     const firstRow = grid.querySelectorAll('tbody tr')[0]

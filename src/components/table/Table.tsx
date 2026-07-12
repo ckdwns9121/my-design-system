@@ -87,6 +87,20 @@ export function TableRow({ className, ...props }: TableRowProps) {
   )
 }
 
+const sortableHeadClasses = [
+  'p-0 select-none',
+  '[&>button]:inline-flex [&>button]:h-10 [&>button]:w-full [&>button]:cursor-pointer',
+  '[&>button]:items-center [&>button]:px-3 [&>button]:text-left [&>button]:uppercase',
+  '[&>button]:hover:text-content-strong [&>button]:focus-visible:outline-none',
+  '[&>button]:focus-visible:ring-2 [&>button]:focus-visible:ring-inset',
+  '[&>button]:focus-visible:ring-focus-default',
+].join(' ')
+
+const staticHeadClasses = [
+  'px-3 focus-visible:outline-none',
+  'focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-default',
+].join(' ')
+
 function getSortIndicator(sortDirection: TableHeadProps['sortDirection']) {
   if (sortDirection === 'ascending') {
     return '↑'
@@ -111,9 +125,8 @@ export function TableHead({
   return (
     <HeadlessTableColumnHeader
       className={cn(
-        'h-10 px-3 text-xs font-semibold uppercase text-content-muted',
-        'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-focus-default',
-        sortable && 'cursor-pointer select-none hover:text-content-strong',
+        'h-10 text-xs font-semibold uppercase text-content-muted',
+        sortable ? sortableHeadClasses : staticHeadClasses,
         className,
       )}
       onSortChange={onSortChange}

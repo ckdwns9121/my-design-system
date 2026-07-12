@@ -101,6 +101,7 @@ describe('headless Table', () => {
     const table = container.querySelector('table')
     const selectAll = container.querySelector<HTMLInputElement>('[aria-label="Select all rows"]')
     const headers = container.querySelectorAll('th')
+    const sortButton = container.querySelector<HTMLButtonElement>('th button')
     const bodyCells = container.querySelectorAll('tbody td')
 
     expect(table?.getAttribute('role')).toBe('grid')
@@ -111,9 +112,9 @@ describe('headless Table', () => {
       selectAll?.focus()
     })
     pressKey(selectAll as HTMLInputElement, 'ArrowRight')
-    expect(document.activeElement).toBe(headers[1])
+    expect(document.activeElement).toBe(sortButton)
 
-    pressKey(headers[1], 'ArrowDown')
+    pressKey(sortButton as HTMLButtonElement, 'ArrowDown')
     expect(document.activeElement).toBe(bodyCells[1])
 
     pressKey(bodyCells[1], 'End')
@@ -138,14 +139,17 @@ describe('headless Table', () => {
       />,
     )
     const sortableHeader = container.querySelectorAll('th')[1]
+    const sortButton = sortableHeader.querySelector('button')
     const row = container.querySelector('tbody tr')
     const nameCell = container.querySelectorAll('tbody td')[1]
     const rowCheckbox = container.querySelector<HTMLInputElement>('[aria-label="Select Toggle"]')
 
-    expect(sortableHeader.getAttribute('aria-sort')).toBe('none')
+    expect(sortableHeader.hasAttribute('aria-sort')).toBe(false)
     expect(row?.getAttribute('aria-selected')).toBe('false')
 
-    pressKey(sortableHeader, 'Enter')
+    act(() => {
+      sortButton?.click()
+    })
     expect(onSortChange).toHaveBeenCalledTimes(1)
 
     pressKey(nameCell, ' ')

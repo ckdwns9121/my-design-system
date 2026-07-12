@@ -325,8 +325,6 @@ export function TableRow({
 
 export function TableColumnHeader({
   children,
-  onClick,
-  onKeyDown,
   onSortChange,
   role,
   scope = 'col',
@@ -340,45 +338,21 @@ export function TableColumnHeader({
   return (
     <th
       {...props}
-      aria-sort={sortable ? sortDirection : undefined}
+      aria-sort={sortable && sortDirection !== 'none' ? sortDirection : undefined}
       data-grid-cell={grid ? '' : undefined}
       data-sort-direction={sortable ? sortDirection : undefined}
       data-sortable={sortable ? '' : undefined}
-      onClick={(event) => {
-        onClick?.(event)
-
-        if (
-          event.defaultPrevented ||
-          !onSortChange ||
-          (isHTMLElement(event.target) &&
-            event.target !== event.currentTarget &&
-            event.target.closest(interactiveElementSelector))
-        ) {
-          return
-        }
-
-        onSortChange()
-      }}
-      onKeyDown={(event) => {
-        onKeyDown?.(event)
-
-        if (
-          event.defaultPrevented ||
-          !onSortChange ||
-          event.target !== event.currentTarget ||
-          (event.key !== 'Enter' && event.key !== ' ')
-        ) {
-          return
-        }
-
-        event.preventDefault()
-        onSortChange()
-      }}
       role={grid ? 'columnheader' : role}
       scope={scope}
       tabIndex={grid ? (tabIndex ?? -1) : tabIndex}
     >
-      {children}
+      {sortable ? (
+        <button data-grid-focus-target="" onClick={onSortChange} type="button">
+          {children}
+        </button>
+      ) : (
+        children
+      )}
     </th>
   )
 }
