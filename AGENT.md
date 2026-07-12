@@ -12,6 +12,17 @@
 - headless layer는 상태, ARIA, 키보드 인터랙션, controlled/uncontrolled API를 담당합니다.
 - styled layer는 Tailwind class, semantic token, variant/size, Storybook 문서화를 담당합니다.
 
+## 접근성 표준 기준
+
+- 접근성 구현은 네이티브 HTML semantics를 우선합니다. `<button>`, `<input>`, `<table>`로 해결할 수 있는 동작을 `div`와 ARIA로 다시 만들지 않습니다.
+- ARIA role, state, property의 의미와 허용 범위는 [WAI-ARIA 명세](https://www.w3.org/TR/wai-aria/)를 기준으로 판단합니다.
+- 컴포넌트별 키보드, 포커스, 상태 전이 설계는 [WAI-ARIA APG Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/)에서 해당 패턴을 먼저 확인합니다.
+- WAI-ARIA 명세는 표준 계약이고 APG는 구현 가이드입니다. 둘이 다르거나 모호하면 정식 명세를 우선하고, APG 예제는 그대로 복사하지 않습니다.
+- `role`과 `aria-*`는 동작을 자동으로 만들지 않습니다. Pattern이 요구하는 키보드 조작, roving tabindex, focus trap/return 등의 실제 동작을 headless layer에서 구현합니다.
+- ARIA state는 실제 UI state와 항상 동기화합니다. 시각적으로 selected, expanded, checked, sorted인 상태는 대응하는 ARIA 값과 불일치하면 안 됩니다.
+- APG와 다르게 구현하는 키 동작이나 범위가 있다면 `DESIGN.md`, Storybook 설명 또는 기술 문서에 이유와 한계를 기록하고 테스트로 고정합니다.
+- 새 interactive primitive의 테스트에는 적용한 Pattern의 핵심 ARIA, 키보드 이동, 포커스 복구를 포함합니다. 복잡한 위젯은 자동화 검증과 별도로 브라우저·스크린리더 수동 검증 범위를 `Not-tested`에 남깁니다.
+
 ## 작업 순서
 
 1. 변경 전 관련 파일과 기존 패턴을 확인합니다.
