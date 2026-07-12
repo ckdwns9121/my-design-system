@@ -124,6 +124,10 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - `Typography`: type scale과 semantic content token 문서화
 - `Spacing`: Tailwind 4px spacing scale 문서화
 
+## 기술 문서
+
+- [Table을 넘어 Data Grid로: React에서 Headless Table 직접 구현하기](docs/headless-table-implementation.md)
+
 ## 스크립트
 
 - `npm run tokens:build` - SSOT 색상 토큰으로 Tailwind color CSS 생성
