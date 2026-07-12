@@ -10,7 +10,7 @@ import {
 } from './components/Card'
 import { ColorPalette } from './components/ColorPalette'
 import { TextField } from './components/TextField'
-import { Toggle } from './components/Toggle'
+import { Toggle } from './components/toggle'
 
 function App() {
   return (

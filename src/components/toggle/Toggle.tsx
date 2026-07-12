@@ -1,6 +1,6 @@
-import type { ToggleProps as HeadlessToggleProps } from '../headless'
-import { Toggle as HeadlessToggle } from '../headless'
-import { cn } from '../lib/cn'
+import type { ToggleProps as HeadlessToggleProps } from '../../headless'
+import { Toggle as HeadlessToggle } from '../../headless'
+import { cn } from '../../lib/cn'
 
 type ToggleSize = 'sm' | 'md' | 'lg'
 
