@@ -1,7 +1,7 @@
-export { Badge } from './Badge'
-export type { BadgeProps } from './Badge'
-export { Button } from './Button'
-export type { ButtonProps } from './Button'
+export { Badge } from './badge'
+export type { BadgeProps } from './badge'
+export { Button } from './button'
+export type { ButtonProps } from './button'
 export {
   Card,
   CardContent,
@@ -9,9 +9,9 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './Card'
-export { ColorPalette } from './ColorPalette'
-export { TextField } from './TextField'
-export type { TextFieldProps } from './TextField'
+} from './card'
+export { ColorPalette } from './color-palette'
+export { TextField } from './text-field'
+export type { TextFieldProps } from './text-field'
 export { Toggle } from './toggle'
 export type { ToggleProps } from './toggle'

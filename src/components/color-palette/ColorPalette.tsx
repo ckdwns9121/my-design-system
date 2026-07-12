@@ -1,4 +1,4 @@
-import colorTokens from '../tokens/color-tokens.json'
+import colorTokens from '../../tokens/color-tokens.json'
 
 type TokenNode = string | { [key: string]: TokenNode }
 

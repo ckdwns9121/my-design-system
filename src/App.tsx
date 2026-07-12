@@ -1,5 +1,5 @@
-import { Badge } from './components/Badge'
-import { Button } from './components/Button'
+import { Badge } from './components/badge'
+import { Button } from './components/button'
 import {
   Card,
   CardContent,
@@ -7,9 +7,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from './components/Card'
-import { ColorPalette } from './components/ColorPalette'
-import { TextField } from './components/TextField'
+} from './components/card'
+import { ColorPalette } from './components/color-palette'
+import { TextField } from './components/text-field'
 import { Toggle } from './components/toggle'
 
 function App() {
