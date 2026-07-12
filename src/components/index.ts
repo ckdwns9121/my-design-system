@@ -21,6 +21,7 @@ export {
   TableHead,
   TableHeader,
   TableRow,
+  TableSelectionCheckbox,
 } from './table'
 export type {
   TableBodyProps,
@@ -31,6 +32,7 @@ export type {
   TableHeaderProps,
   TableProps,
   TableRowProps,
+  TableSelectionCheckboxProps,
 } from './table'
 export { Toggle } from './toggle'
 export type { ToggleProps } from './toggle'

@@ -7,6 +7,7 @@ export {
   TableHead,
   TableHeader,
   TableRow,
+  TableSelectionCheckbox,
 } from './Table'
 export type {
   TableBodyProps,
@@ -17,4 +18,5 @@ export type {
   TableHeaderProps,
   TableProps,
   TableRowProps,
+  TableSelectionCheckboxProps,
 } from './Table'

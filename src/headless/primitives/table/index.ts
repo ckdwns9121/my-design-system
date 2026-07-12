@@ -8,7 +8,7 @@ export {
   TableRoot,
   TableRow,
   TableSelectionCheckbox,
-} from './table'
+} from './Table'
 export type {
   TableBodyProps,
   TableCaptionProps,
@@ -19,6 +19,4 @@ export type {
   TableRootProps,
   TableRowProps,
   TableSelectionCheckboxProps,
-} from './table'
-export { Toggle } from './toggle'
-export type { ToggleProps } from './toggle'
+} from './Table'

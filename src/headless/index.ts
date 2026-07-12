@@ -2,6 +2,37 @@ export {
   useControllableState,
   type ControllableStateSetter,
   type UseControllableStateOptions,
+  useTableSelection,
+  type TableRowId,
+  type TableSelectionMode,
+  type UseTableSelectionOptions,
+  useTableSort,
+  type TableSortDescriptor,
+  type TableSortDirection,
+  type TableSortValue,
+  type UseTableSortOptions,
 } from './hooks'
-export { Toggle } from './primitives'
-export type { ToggleProps } from './primitives'
+export {
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableColumnHeader,
+  TableFooter,
+  TableHeader,
+  TableRoot,
+  TableRow,
+  TableSelectionCheckbox,
+  Toggle,
+} from './primitives'
+export type {
+  TableBodyProps,
+  TableCaptionProps,
+  TableCellProps,
+  TableColumnHeaderProps,
+  TableFooterProps,
+  TableHeaderProps,
+  TableRootProps,
+  TableRowProps,
+  TableSelectionCheckboxProps,
+  ToggleProps,
+} from './primitives'

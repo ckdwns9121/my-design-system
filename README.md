@@ -73,7 +73,10 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 ### Step 1. Headless core
 
 - [x] `useControllableState`
+- [x] `useTableSort`
+- [x] `useTableSelection`
 - [x] `Toggle`
+- [x] `Table grid navigation`
 - [ ] `Checkbox`
 - [ ] `Tabs`
 - [ ] `Accordion`
@@ -111,7 +114,7 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - `Button`: semantic token 기반 버튼
 - `Badge`: 상태와 primary tone 표시
 - `Card`: 패널 레이아웃
-- `Table`: 네이티브 table semantics 기반 데이터 표시
+- `Table`: 네이티브 table semantics와 opt-in grid 정렬, 행 선택, 키보드 탐색
 - `TextField`: label, helper text, error state 포함 입력 필드
 
 ## 현재 포함된 Foundation
