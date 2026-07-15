@@ -45,6 +45,6 @@ export const CssCheck: Story = {
   },
   play: async ({ canvas }) => {
     const button = canvas.getByRole('button', { name: /submit/i })
-    await expect(getComputedStyle(button).backgroundColor).toBe('rgb(22, 163, 74)')
+    await expect(getComputedStyle(button).backgroundColor).toBe('rgb(21, 128, 61)')
   },
 }

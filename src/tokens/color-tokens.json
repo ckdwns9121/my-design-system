@@ -45,18 +45,20 @@
     "primary": {
       "surface": "{primitive.green.50}",
       "surface-strong": "{primitive.green.100}",
-      "solid": "{primitive.green.600}",
-      "solid-hover": "{primitive.green.700}",
+      "solid": "{primitive.green.700}",
+      "solid-hover": "{primitive.green.800}",
       "text": "{primitive.green.700}",
       "text-strong": "{primitive.green.950}",
       "on-solid": "{primitive.white.DEFAULT}",
-      "ring": "{primitive.green.600}"
+      "ring": "{primitive.green.700}"
     },
     "surface": {
       "canvas": "{primitive.slate.50}",
       "panel": "{primitive.white.DEFAULT}",
       "muted": "{primitive.slate.100}",
-      "raised": "{primitive.white.DEFAULT}"
+      "raised": "{primitive.white.DEFAULT}",
+      "inverse": "{primitive.slate.950}",
+      "overlay": "{primitive.slate.950}"
     },
     "content": {
       "strong": "{primitive.slate.950}",
@@ -90,7 +92,7 @@
       }
     },
     "focus": {
-      "default": "{primitive.green.600}"
+      "default": "{primitive.green.700}"
     }
   }
 }

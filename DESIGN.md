@@ -2,7 +2,7 @@
 
 ## Source of truth
 - Status: Active
-- Last refreshed: 2026-07-12
+- Last refreshed: 2026-07-15
 - Primary product surfaces: React component library, Storybook documentation, Vite demo surface.
 - Evidence reviewed: `README.md`, `src/index.css`, `src/App.tsx`, `src/foundation/*`, `src/components/*`, `src/headless/*`, `.storybook/preview.tsx`.
 
@@ -43,15 +43,15 @@
 ## Components
 - Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`.
 - Existing components to reuse: `Button`, `Badge`, `Card`, `Table`, `TextField`, `Toggle`.
-- New/changed components: `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
-- Target headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, then `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`.
+- New/changed components: `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, and `Tooltip` now expose headless behavior with token-driven styled layers. `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
+- Implemented headless primitives: `useControllableState`, `Toggle`, `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`, and Table grid behavior.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges; input helper/error states; table ascending/descending sort and selected/indeterminate states.
-- Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases. Headless table hooks own sorting and selection state, the headless table primitive owns ARIA and keyboard behavior, and the styled table consumes generated semantic Tailwind classes.
+- Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases, including inverse and overlay surfaces. Headless primitives own state, ARIA, keyboard, focus, and overlay behavior. Styled components consume generated semantic Tailwind classes.
 
 ## Accessibility
 - Target standard: WCAG AA-oriented defaults.
-- Keyboard/focus behavior: Interactive components must expose visible focus rings through semantic focus tokens. Table grid mode keeps one roving tab stop and supports Arrow, Home/End, Ctrl/Cmd+Home/End, and PageUp/PageDown navigation.
-- Contrast/readability: Primary solid uses white text on green 600; body text uses slate semantic content tokens.
+- Keyboard/focus behavior: Interactive components expose visible focus rings through semantic focus tokens. Tabs, Accordion, DropdownMenu, Select, and Table implement their APG keyboard models. Dialog traps focus and restores it to its trigger; Tooltip keeps focus on its trigger.
+- Contrast/readability: Primary solid uses white text on green 700 for WCAG AA body-text contrast; body text uses slate semantic content tokens.
 - Screen-reader semantics: Form controls use labels and ARIA descriptions/invalid state. Interactive tables expose `role="grid"`, `aria-sort`, `aria-selected`, and `aria-multiselectable` where applicable.
 - Reduced motion and sensory considerations: Current motion is limited to small state transitions.
 
@@ -67,6 +67,7 @@
 - Success: Status badges use semantic success tokens.
 - Disabled: Button disabled state reduces opacity and blocks pointer interaction.
 - Selected: Table rows expose both `aria-selected` and the semantic primary selection surface.
+- Open overlays: Dialog, Popover, DropdownMenu, Select, and Tooltip expose open state through ARIA and `data-state`; Dialog additionally makes background content inert and locks body scrolling.
 - Offline/slow network, if applicable: Not applicable yet.
 
 ## Content voice

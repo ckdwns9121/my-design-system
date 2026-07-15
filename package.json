@@ -8,6 +8,8 @@
     "dev": "npm run tokens:build && vite",
     "build": "npm run tokens:build && tsc -b && vite build",
     "lint": "oxlint",
+    "test": "vitest --project unit run",
+    "test:storybook": "vitest --project storybook run",
     "preview": "vite preview",
     "storybook": "npm run tokens:build && storybook dev -p 6006",
     "build-storybook": "npm run tokens:build && storybook build"

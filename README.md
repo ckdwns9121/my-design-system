@@ -62,7 +62,7 @@ primitive token -> semantic token -> headless primitive -> styled component -> S
 
 Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
-- `primitive.green.600`: 실제 색상 값
+- `primitive.green.700`: 실제 색상 값
 - `primary.solid`: primitive를 참조하는 semantic alias
 - `bg-primary-solid`: 컴포넌트가 사용하는 Tailwind class
 
@@ -77,9 +77,9 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [x] `useTableSelection`
 - [x] `Toggle`
 - [x] `Table grid navigation`
-- [ ] `Checkbox`
-- [ ] `Tabs`
-- [ ] `Accordion`
+- [x] `Checkbox`
+- [x] `Tabs`
+- [x] `Accordion`
 
 ### Step 2. Styled components
 
@@ -89,9 +89,9 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - [x] `TextField`
 - [x] `Table`
 - [x] `Toggle`
-- [ ] `Checkbox`
-- [ ] `Tabs`
-- [ ] `Accordion`
+- [x] `Checkbox`
+- [x] `Tabs`
+- [x] `Accordion`
 
 ### Step 2-1. Foundation
 
@@ -101,21 +101,30 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 
 ### Step 3. Overlay and advanced primitives
 
-- [ ] `Dialog`
-- [ ] `Popover`
-- [ ] `DropdownMenu`
-- [ ] `Select`
-- [ ] `Tooltip`
+- [x] `Dialog`
+- [x] `Popover`
+- [x] `DropdownMenu`
+- [x] `Select`
+- [x] `Tooltip`
 
-이 단계의 컴포넌트는 focus trap, focus return, portal, outside click, escape key, scroll lock, screen reader 동작을 포함해 구현합니다.
+Overlay 컴포넌트는 공통 Portal, anchor positioning, Escape/outside dismiss, focus return을 사용합니다. Modal `Dialog`는 focus trap, background inert, scroll lock을 추가로 적용합니다. `Tooltip`은 trigger에 focus를 유지하고 `aria-describedby`로 설명을 연결합니다.
 
 ## 현재 포함된 컴포넌트
 
 - `Button`: semantic token 기반 버튼
 - `Badge`: 상태와 primary tone 표시
 - `Card`: 패널 레이아웃
+- `Checkbox`: controlled/uncontrolled 및 indeterminate 상태를 지원하는 네이티브 체크박스
+- `Tabs`: 자동/수동 활성화, 가로/세로 방향, roving tabindex를 지원하는 탭
+- `Accordion`: 단일/다중 열기와 헤더 키보드 탐색을 지원하는 아코디언
 - `Table`: 네이티브 table semantics와 opt-in grid 정렬, 행 선택, 키보드 탐색
 - `TextField`: label, helper text, error state 포함 입력 필드
+- `Toggle`: `aria-pressed` 기반 양방향 토글
+- `Dialog`: modal focus trap, background inert, scroll lock을 포함한 대화상자
+- `Popover`: trigger 기준 위치 계산과 비모달 dismiss 동작을 제공하는 팝오버
+- `DropdownMenu`: menu button, roving focus, typeahead를 지원하는 액션 메뉴
+- `Select`: select-only combobox, listbox, active descendant 탐색을 지원하는 선택 입력
+- `Tooltip`: hover/focus 지연 열기와 `aria-describedby`를 지원하는 설명 UI
 
 ## 현재 포함된 Foundation
 
@@ -136,7 +145,8 @@ Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
 - `npm run build` - TypeScript + Vite 프로덕션 빌드
 - `npm run build-storybook` - 정적 Storybook 빌드
 - `npm run lint` - Oxlint 실행
-- `npx vitest --project storybook run` - Storybook story 테스트
+- `npm run test` - headless primitive 단위 테스트
+- `npm run test:storybook` - Chromium 기반 Storybook interaction 및 accessibility 테스트
 
 ## 구현 규칙
 

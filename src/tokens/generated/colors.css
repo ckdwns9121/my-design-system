@@ -35,16 +35,18 @@
   /* Semantic color tokens */
   --color-primary-surface: var(--color-primitive-green-50);
   --color-primary-surface-strong: var(--color-primitive-green-100);
-  --color-primary-solid: var(--color-primitive-green-600);
-  --color-primary-solid-hover: var(--color-primitive-green-700);
+  --color-primary-solid: var(--color-primitive-green-700);
+  --color-primary-solid-hover: var(--color-primitive-green-800);
   --color-primary-text: var(--color-primitive-green-700);
   --color-primary-text-strong: var(--color-primitive-green-950);
   --color-primary-on-solid: var(--color-primitive-white-DEFAULT);
-  --color-primary-ring: var(--color-primitive-green-600);
+  --color-primary-ring: var(--color-primitive-green-700);
   --color-surface-canvas: var(--color-primitive-slate-50);
   --color-surface-panel: var(--color-primitive-white-DEFAULT);
   --color-surface-muted: var(--color-primitive-slate-100);
   --color-surface-raised: var(--color-primitive-white-DEFAULT);
+  --color-surface-inverse: var(--color-primitive-slate-950);
+  --color-surface-overlay: var(--color-primitive-slate-950);
   --color-content-strong: var(--color-primitive-slate-950);
   --color-content-default: var(--color-primitive-slate-800);
   --color-content-muted: var(--color-primitive-slate-600);
@@ -64,6 +66,6 @@
   --color-status-danger-solid-hover: var(--color-primitive-red-600);
   --color-status-danger-text: var(--color-primitive-red-700);
   --color-status-danger-ring: var(--color-primitive-red-700);
-  --color-focus-default: var(--color-primitive-green-600);
+  --color-focus-default: var(--color-primitive-green-700);
 }
 

@@ -1,0 +1,20 @@
+export {
+  SelectContent as Content,
+  SelectLabel as Label,
+  SelectOption as Option,
+  SelectPortal as Portal,
+  SelectRoot as Root,
+  SelectSeparator as Separator,
+  SelectTrigger as Trigger,
+  SelectValue as Value,
+} from './Select'
+export type {
+  SelectContentProps as ContentProps,
+  SelectLabelProps as LabelProps,
+  SelectOptionProps as OptionProps,
+  SelectPortalProps as PortalProps,
+  SelectRootProps as RootProps,
+  SelectSeparatorProps as SeparatorProps,
+  SelectTriggerProps as TriggerProps,
+  SelectValueProps as ValueProps,
+} from './Select'
