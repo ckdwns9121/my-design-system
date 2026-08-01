@@ -60,6 +60,8 @@ export type {
   ComboboxPortalProps,
   ComboboxProps,
 } from './combobox'
+export { IconButton } from './icon-button'
+export type { IconButtonProps } from './icon-button'
 export {
   DialogClose,
   DialogContent,
@@ -208,5 +210,13 @@ export type {
   TooltipRootProps,
   TooltipTriggerProps,
 } from './tooltip'
+export { ToastProvider, ToastViewport, useToast } from './toast'
+export type {
+  StyledToast,
+  ToastOptions,
+  ToastProviderProps,
+  ToastTone,
+  ToastViewportProps,
+} from './toast'
 export { Toggle } from './toggle'
 export type { ToggleProps } from './toggle'
