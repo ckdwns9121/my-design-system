@@ -1,157 +1,231 @@
-# Headless Core FE Design System
+# Headless Core Design System
 
-접근성, 상태 관리, 키보드 인터랙션을 직접 구현하는 프론트엔드 디자인 시스템입니다.
+접근성, 상태, 키보드 인터랙션을 직접 구현하는 React 디자인 시스템입니다.
 
-이 프로젝트는 headless primitive를 직접 구현하고, 그 위에 토큰 기반 styled component layer를 구성합니다. 컴포넌트는 단계별로 추가하며 Storybook에서 상태, 접근성, 인터랙션을 검증합니다.
+라이브러리를 감싸는 대신 headless primitive를 직접 만들고, 그 위에 토큰 기반 styled layer를 얹습니다. 27개 컴포넌트, 37개 아이콘, SSOT 색상 토큰, Storybook 문서로 구성되어 있습니다.
 
-## 목표
+```txt
+primitive token → semantic token → headless primitive → styled component → docs
+```
 
-- headless primitive를 직접 설계하고 구현합니다.
-- primitive token에서 semantic token으로 이어지는 SSOT 디자인 토큰 구조를 유지합니다.
-- headless layer 위에 Tailwind 기반 styled component layer를 얹습니다.
-- Storybook에서 컴포넌트 상태, 접근성, 인터랙션을 검증합니다.
-- 복잡한 컴포넌트는 구현 범위와 접근성 요구사항을 문서화한 뒤 단계적으로 추가합니다.
+<br />
+
+## 이 시스템의 특징
+
+**동작과 스타일이 분리되어 있습니다.** headless layer가 상태, ARIA, 키보드, controlled/uncontrolled API를 소유하고 스타일 결정은 하지 않습니다. styled layer는 Tailwind class와 semantic token만 얹습니다. 팔레트를 바꿔도 동작 코드는 바뀌지 않고, 디자인을 갈아끼워도 접근성은 유지됩니다.
+
+**색상 값은 한 곳에만 있습니다.** `src/tokens/color-tokens.json`이 SSOT이고 Tailwind CSS 변수는 여기에서 생성됩니다. 컴포넌트에는 raw hex가 없습니다.
+
+**접근성이 사후 작업이 아닙니다.** 각 컴포넌트는 [WAI-ARIA 명세](https://www.w3.org/TR/wai-aria/)를 계약으로, [APG Patterns](https://www.w3.org/WAI/ARIA/apg/patterns/)를 구현 가이드로 삼습니다. `role`과 `aria-*`를 붙이는 데서 끝내지 않고 roving tabindex, focus trap, focus return 같은 실제 동작을 primitive에 구현하고 테스트로 고정합니다.
+
+**모든 컴포넌트에 문서가 있습니다.** Storybook 문서 페이지마다 대표 예제, 사용 규칙, props 표가 있고, story는 그대로 테스트로 실행됩니다.
+
+<br />
+
+## 시작하기
+
+```bash
+npm install
+npm run storybook     # http://localhost:6006
+```
+
+Vite 데모 앱은 `npm run dev`로 실행합니다.
+
+> **npm 배포는 아직 준비 중입니다.** 현재는 이 저장소를 클론해서 사용합니다.
+
+<br />
+
+## 사용 예시
+
+토큰 CSS를 한 번 불러오고 컴포넌트를 가져다 씁니다.
+
+```tsx
+import './index.css'
+import { Button, TextField, ToastProvider, ToastViewport, useToast } from './components'
+
+function App() {
+  return (
+    <ToastProvider>
+      <SaveForm />
+      <ToastViewport />
+    </ToastProvider>
+  )
+}
+
+function SaveForm() {
+  const { toast } = useToast()
+
+  return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault()
+        toast({ title: '저장했습니다', tone: 'success' })
+      }}
+    >
+      <TextField label="주문 번호" placeholder="ORD-0000" />
+      <Button type="submit">저장</Button>
+    </form>
+  )
+}
+```
+
+동작만 필요하면 headless layer를 직접 씁니다. 스타일은 전부 소비자 몫입니다.
+
+```tsx
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from './headless'
+
+<TabsRoot defaultValue="orders" activationMode="manual">
+  <TabsList>
+    <TabsTrigger value="orders">주문</TabsTrigger>
+    <TabsTrigger value="stock">재고</TabsTrigger>
+  </TabsList>
+  <TabsContent value="orders">…</TabsContent>
+</TabsRoot>
+```
+
+<br />
+
+## 컴포넌트
+
+각 컴포넌트는 Storybook에 문서 페이지를 가집니다. **Headless** 표시가 있으면 스타일 없이 동작만 가져다 쓸 수 있습니다.
+
+### 폼
+
+| 컴포넌트 | 설명 | Headless |
+| --- | --- | :---: |
+| `Button` | 화면의 명령을 실행 | |
+| `IconButton` | 아이콘만 있는 버튼. 접근 이름이 필수 | |
+| `TextField` | 한 줄 입력. label, helper, error | |
+| `Textarea` | 여러 줄 입력, 글자 수 표시 | |
+| `Checkbox` | 독립 선택. indeterminate 지원 | ✓ |
+| `RadioGroup` | 배타적 선택. 그룹 단일 탭 정지점 | ✓ |
+| `Switch` | 즉시 반영되는 설정 | ✓ |
+| `Toggle` | `aria-pressed` 기반 양방향 버튼 | ✓ |
+| `Select` | 목록에서 하나 선택. typeahead | ✓ |
+| `MultiSelect` | 여러 값 선택. `aria-multiselectable` | ✓ |
+| `Combobox` | 입력으로 좁혀 선택. list autocomplete | ✓ |
+
+### 오버레이
+
+| 컴포넌트 | 설명 | Headless |
+| --- | --- | :---: |
+| `Dialog` | focus trap, background inert, scroll lock | ✓ |
+| `Popover` | 앵커 위치 계산, 비모달 dismiss | ✓ |
+| `DropdownMenu` | menu button, roving focus, typeahead | ✓ |
+| `Tooltip` | hover/focus 지연 열기, `aria-describedby` | ✓ |
+
+### 데이터 표시
+
+| 컴포넌트 | 설명 | Headless |
+| --- | --- | :---: |
+| `Table` | 네이티브 table. opt-in grid 정렬·선택 | ✓ |
+| `Accordion` | 단일/다중 열기, 헤더 키보드 탐색 | ✓ |
+| `Tabs` | 자동/수동 활성화, 가로/세로 | ✓ |
+| `Card` | 패널 레이아웃 | |
+| `Badge` | 상태·분류 라벨 | |
+| `EmptyState` | 비어 있는 이유와 다음 행동 | |
+
+### 피드백
+
+| 컴포넌트 | 설명 | Headless |
+| --- | --- | :---: |
+| `Toast` | 화면을 막지 않는 일시 알림 | ✓ |
+| `Alert` | 화면에 남는 상태 알림 | |
+| `Progress` | 진행률. 미완료 상태 지원 | |
+| `Loading` | 처리 중 표시 | |
+
+### 내비게이션
+
+| 컴포넌트 | 설명 | Headless |
+| --- | --- | :---: |
+| `Pagination` | 페이지 이동. 폭이 고정된 페이지 창 | |
+| `Breadcrumb` | 현재 경로와 상위 이동 | |
+
+<br />
+
+## Foundation
+
+| 문서 | 내용 |
+| --- | --- |
+| `Color Palette` | primitive 원색과 semantic alias, 해석된 값 |
+| `Typography` | type scale과 semantic content token |
+| `Spacing` | Tailwind 4px spacing scale |
+| `Icons` | 24×24 그리드에 직접 그린 37개 아이콘 |
+
+아이콘은 `currentColor`를 따르므로 색상 prop이 없고, 기본이 장식(`aria-hidden`)입니다. 아이콘만으로 의미를 전달할 때만 `title`을 넘겨 이름을 갖게 합니다. 새 아이콘은 `createIcon`으로 만들어야 크기·색·접근성 처리가 같아집니다.
+
+<br />
+
+## 토큰
+
+색상은 `primitive → semantic → component` 순서로 흐릅니다.
+
+| 단계 | 예시 | 역할 |
+| --- | --- | --- |
+| primitive | `primitive.green.700` | 실제 색상 값 |
+| semantic | `primary.solid` | primitive를 참조하는 의미 이름 |
+| component | `bg-primary-solid` | 컴포넌트가 쓰는 Tailwind class |
+
+색상을 바꿀 때는 `src/tokens/color-tokens.json`만 수정하고 다시 생성합니다.
+
+```bash
+npm run tokens:build
+```
+
+`src/tokens/generated/colors.css`는 생성 산출물입니다. 직접 수정하지 않습니다.
+
+<br />
 
 ## 구조
 
 ```txt
-src/tokens
-  color-tokens.json
-  generated/colors.css
-
-src/headless
-  hooks
-  primitives
-
-src/foundation
-  color-palette
-  typography
-  spacing
-
-src/components
-  styled components
-  *.stories.tsx
+src/
+├── tokens/          color-tokens.json (SSOT) → generated/colors.css
+├── headless/
+│   ├── hooks/       useControllableState, usePagination, useTableSort, useTableSelection
+│   └── primitives/  상태 · ARIA · 키보드 · controlled/uncontrolled
+├── components/      Tailwind semantic token을 쓰는 styled layer
+├── icons/           createIcon으로 만든 24×24 세트
+├── foundation/      색상 · 타이포그래피 · spacing 문서
+└── docs/            Storybook 문서 페이지 레이아웃
 ```
 
-현재 foundation 문서는 색상, 타이포그래피, spacing을 기준으로 구성되어 있습니다.
+<br />
 
-## 레이어 원칙
+## 스크립트
 
-```txt
-headless layer
-- 상태 관리
-- ARIA 속성
-- 키보드 인터랙션
-- controlled / uncontrolled API
-- 스타일 없음 또는 최소 className 전달
+| 명령 | 설명 |
+| --- | --- |
+| `npm run storybook` | Storybook 개발 서버 |
+| `npm run dev` | Vite 데모 앱 |
+| `npm run build` | TypeScript + Vite 프로덕션 빌드 |
+| `npm run build-storybook` | 정적 Storybook 빌드 |
+| `npm run tokens:build` | SSOT 색상 토큰에서 Tailwind CSS 생성 |
+| `npm run lint` | Oxlint |
+| `npm run test` | headless primitive 단위 테스트 |
+| `npm run test:storybook` | Chromium 기반 interaction · 접근성 테스트 |
 
-styled layer
-- Tailwind class
-- semantic token 사용
-- size / variant
-- Storybook 문서와 테스트
-```
+<br />
 
-컴포넌트는 최종적으로 다음 흐름을 따릅니다.
+## 구현 규칙
 
-```txt
-primitive token -> semantic token -> headless primitive -> styled component -> Storybook
-```
+- 컴포넌트에 raw hex를 쓰지 않습니다.
+- 컴포넌트 스타일은 primitive가 아니라 semantic token을 씁니다.
+- headless layer는 스타일 결정을 하지 않습니다.
+- styled layer는 headless의 상태와 ARIA를 유지한 채 시각 스타일만 더합니다.
+- 네이티브 HTML semantics를 우선합니다. `<button>`, `<input>`, `<table>`로 되는 동작을 `div`와 ARIA로 다시 만들지 않습니다.
+- 새 컴포넌트는 story와 문서 페이지, 그리고 interaction 또는 접근성 검증을 함께 추가합니다.
 
-## 토큰 흐름
+자세한 작업 규칙은 [AGENT.md](AGENT.md), 설계 기준은 [DESIGN.md](DESIGN.md)에 있습니다.
 
-Color token은 `primitive -> semantic -> component` 순서로 사용합니다.
-
-- `primitive.green.700`: 실제 색상 값
-- `primary.solid`: primitive를 참조하는 semantic alias
-- `bg-primary-solid`: 컴포넌트가 사용하는 Tailwind class
-
-컴포넌트에서는 raw hex나 primitive class를 직접 쓰지 않습니다. 색상을 바꿀 때는 `src/tokens/color-tokens.json`을 수정한 뒤 `npm run tokens:build`를 실행합니다.
-
-## 컴포넌트 진행 단계
-
-### Step 1. Headless core
-
-- [x] `useControllableState`
-- [x] `useTableSort`
-- [x] `useTableSelection`
-- [x] `Toggle`
-- [x] `Table grid navigation`
-- [x] `Checkbox`
-- [x] `Tabs`
-- [x] `Accordion`
-
-### Step 2. Styled components
-
-- [x] `Button`
-- [x] `Badge`
-- [x] `Card`
-- [x] `TextField`
-- [x] `Table`
-- [x] `Toggle`
-- [x] `Checkbox`
-- [x] `Tabs`
-- [x] `Accordion`
-
-### Step 2-1. Foundation
-
-- [x] `ColorPalette`
-- [x] `Typography`
-- [x] `Spacing`
-
-### Step 3. Overlay and advanced primitives
-
-- [x] `Dialog`
-- [x] `Popover`
-- [x] `DropdownMenu`
-- [x] `Select`
-- [x] `Tooltip`
-
-Overlay 컴포넌트는 공통 Portal, anchor positioning, Escape/outside dismiss, focus return을 사용합니다. Modal `Dialog`는 focus trap, background inert, scroll lock을 추가로 적용합니다. `Tooltip`은 trigger에 focus를 유지하고 `aria-describedby`로 설명을 연결합니다.
-
-## 현재 포함된 컴포넌트
-
-- `Button`: semantic token 기반 버튼
-- `Badge`: 상태와 primary tone 표시
-- `Card`: 패널 레이아웃
-- `Checkbox`: controlled/uncontrolled 및 indeterminate 상태를 지원하는 네이티브 체크박스
-- `Tabs`: 자동/수동 활성화, 가로/세로 방향, roving tabindex를 지원하는 탭
-- `Accordion`: 단일/다중 열기와 헤더 키보드 탐색을 지원하는 아코디언
-- `Table`: 네이티브 table semantics와 opt-in grid 정렬, 행 선택, 키보드 탐색
-- `TextField`: label, helper text, error state 포함 입력 필드
-- `Toggle`: `aria-pressed` 기반 양방향 토글
-- `Dialog`: modal focus trap, background inert, scroll lock을 포함한 대화상자
-- `Popover`: trigger 기준 위치 계산과 비모달 dismiss 동작을 제공하는 팝오버
-- `DropdownMenu`: menu button, roving focus, typeahead를 지원하는 액션 메뉴
-- `Select`: select-only combobox, listbox, active descendant 탐색을 지원하는 선택 입력
-- `Tooltip`: hover/focus 지연 열기와 `aria-describedby`를 지원하는 설명 UI
-
-## 현재 포함된 Foundation
-
-- `Docs`: foundation 기준과 token flow 문서
-- `ColorPalette`: primitive/semantic 색상 토큰 문서화
-- `Typography`: type scale과 semantic content token 문서화
-- `Spacing`: Tailwind 4px spacing scale 문서화
+<br />
 
 ## 기술 문서
 
 - [Table을 넘어 Data Grid로: React에서 Headless Table 직접 구현하기](docs/headless-table-implementation.md)
 
-## 스크립트
+<br />
 
-- `npm run tokens:build` - SSOT 색상 토큰으로 Tailwind color CSS 생성
-- `npm run dev` - Vite 개발 서버
-- `npm run storybook` - Storybook 컴포넌트 문서
-- `npm run build` - TypeScript + Vite 프로덕션 빌드
-- `npm run build-storybook` - 정적 Storybook 빌드
-- `npm run lint` - Oxlint 실행
-- `npm run test` - headless primitive 단위 테스트
-- `npm run test:storybook` - Chromium 기반 Storybook interaction 및 accessibility 테스트
+## 기술 스택
 
-## 구현 규칙
-
-- 컴포넌트에서 raw hex 값을 사용하지 않습니다.
-- 일반 컴포넌트 스타일은 primitive token이 아니라 semantic token을 사용합니다.
-- headless layer는 스타일 결정을 하지 않습니다.
-- styled layer는 headless layer의 상태와 ARIA를 유지한 채 시각 스타일만 추가합니다.
-- 새 컴포넌트는 Storybook story와 최소한의 interaction 또는 accessibility 검증을 함께 추가합니다.
+React 19 · TypeScript · Vite · Tailwind CSS v4 · Storybook 10 · Vitest (Playwright)
