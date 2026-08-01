@@ -998,7 +998,8 @@
         "on off",
         "설정",
         "ios toggle",
-        "toggle"
+        "toggle",
+        "토글"
       ],
       "import": "src/components",
       "exports": [
