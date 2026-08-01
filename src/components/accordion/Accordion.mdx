@@ -1,36 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as AccordionStories from './Accordion.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Accordion.doc'
+import * as stories from './Accordion.stories'
 
-<Meta of={AccordionStories} />
+{/* This page renders from Accordion.doc.ts. Edit the doc, not this file. */}
 
-# Accordion
+<Meta of={stories} />
 
-여러 구역을 접었다 펴서 긴 화면의 정보량을 조절합니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={AccordionStories.Single} />
-
-    - 한 번에 하나만 열어야 하면 `Single`, 여러 구역을 동시에 보여줘야 하면 `Multiple`을 사용합니다.
-    - 헤더에는 접힌 상태에서도 내용을 짐작할 수 있는 문구를 씁니다.
-    - 항상 열려 있어야 하는 내용은 Accordion에 넣지 않습니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="여러 구역 열기">
-      <Canvas of={AccordionStories.Multiple} />
-    </DocsSection>
-    <DocsSection title="접기 방지">
-      <Canvas of={AccordionStories.NonCollapsible} />
-    </DocsSection>
-    <DocsSection title="비활성 항목">
-      <Canvas of={AccordionStories.DisabledItem} />
-    </DocsSection>
-    <DocsSection title="제어 모드">
-      <Canvas of={AccordionStories.Controlled} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

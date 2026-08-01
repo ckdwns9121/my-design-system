@@ -1,33 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as ButtonStories from './Button.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Button.doc'
+import * as stories from './Button.stories'
 
-<Meta of={ButtonStories} />
+{/* This page renders from Button.doc.ts. Edit the doc, not this file. */}
 
-# Button
+<Meta of={stories} />
 
-화면의 명령을 실행합니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={ButtonStories.Primary} />
-
-    - 한 화면의 주 액션에는 `primary`, 보조 액션에는 `secondary`나 `subtle`을 사용합니다.
-    - 되돌리기 어려운 명령에만 `danger`를 사용합니다.
-    - `isLoading`은 버튼을 자동으로 비활성화하므로 중복 제출을 따로 막지 않아도 됩니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="보조 액션">
-      <Canvas of={ButtonStories.Secondary} />
-    </DocsSection>
-    <DocsSection title="로딩">
-      <Canvas of={ButtonStories.Loading} />
-    </DocsSection>
-    <DocsSection title="위험 액션">
-      <Canvas of={ButtonStories.Danger} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

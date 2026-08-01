@@ -187,8 +187,17 @@ src/
 ├── components/      Tailwind semantic token을 쓰는 styled layer
 ├── icons/           createIcon으로 만든 24×24 세트
 ├── foundation/      색상 · 타이포그래피 · spacing 문서
-└── docs/            Storybook 문서 페이지 레이아웃
+└── docs/            문서 스키마와 렌더러
 ```
+
+각 컴포넌트 폴더에는 `X.doc.ts`가 있습니다. **문서는 산문이 아니라 데이터입니다.**
+
+```txt
+X.doc.ts ─┬─→ X.mdx           (Storybook 문서 페이지)
+          └─→ component-manifest.json  (에이전트가 읽는 형태)
+```
+
+한 번 쓴 규칙이 사람과 에이전트 양쪽에 도달하고, 둘이 어긋날 수 없습니다. 스토리 이름이 바뀌면 `npm run test`가 실패합니다.
 
 <br />
 
@@ -201,6 +210,7 @@ src/
 | `npm run build` | TypeScript + Vite 프로덕션 빌드 |
 | `npm run build-storybook` | 정적 Storybook 빌드 |
 | `npm run tokens:build` | SSOT 색상 토큰에서 Tailwind CSS 생성 |
+| `npm run docs:manifest` | `*.doc.ts`에서 `docs/component-manifest.json` 생성 |
 | `npm run lint` | Oxlint |
 | `npm run test` | headless primitive 단위 테스트 |
 | `npm run test:storybook` | Chromium 기반 interaction · 접근성 테스트 |
@@ -214,7 +224,8 @@ src/
 - headless layer는 스타일 결정을 하지 않습니다.
 - styled layer는 headless의 상태와 ARIA를 유지한 채 시각 스타일만 더합니다.
 - 네이티브 HTML semantics를 우선합니다. `<button>`, `<input>`, `<table>`로 되는 동작을 `div`와 ARIA로 다시 만들지 않습니다.
-- 새 컴포넌트는 story와 문서 페이지, 그리고 interaction 또는 접근성 검증을 함께 추가합니다.
+- 새 컴포넌트는 story와 `X.doc.ts`, 그리고 interaction 또는 접근성 검증을 함께 추가합니다.
+- MDX는 직접 수정하지 않습니다. 내용은 `X.doc.ts`에 씁니다.
 
 자세한 작업 규칙은 [AGENT.md](AGENT.md), 설계 기준은 [DESIGN.md](DESIGN.md)에 있습니다.
 

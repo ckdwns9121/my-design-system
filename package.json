@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "tokens:build": "node scripts/generate-color-tokens.mjs",
+    "docs:manifest": "node scripts/generate-component-manifest.mjs",
     "dev": "npm run tokens:build && vite",
     "build": "npm run tokens:build && tsc -b && vite build",
     "lint": "oxlint",

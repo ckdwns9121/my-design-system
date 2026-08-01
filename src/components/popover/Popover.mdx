@@ -1,27 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as PopoverStories from './Popover.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Popover.doc'
+import * as stories from './Popover.stories'
 
-<Meta of={PopoverStories} />
+{/* This page renders from Popover.doc.ts. Edit the doc, not this file. */}
 
-# Popover
+<Meta of={stories} />
 
-트리거 옆에 보조 내용이나 간단한 입력을 띄웁니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={PopoverStories.Basic} />
-
-    - 설명만 필요하면 Tooltip, 명령 목록이면 DropdownMenu를 사용합니다.
-    - 포커스를 가두지 않으므로 필수 입력을 Popover 안에서 받지 않습니다.
-    - Escape와 바깥 클릭으로 닫히고 포커스는 트리거로 돌아갑니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="제어 모드">
-      <Canvas of={PopoverStories.Controlled} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

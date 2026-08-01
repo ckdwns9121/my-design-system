@@ -1,36 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as ProgressStories from './Progress.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Progress.doc'
+import * as stories from './Progress.stories'
 
-<Meta of={ProgressStories} />
+{/* This page renders from Progress.doc.ts. Edit the doc, not this file. */}
 
-# Progress
+<Meta of={stories} />
 
-작업이 얼마나 진행됐는지 보여줍니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={ProgressStories.WithValue} />
-
-    - 끝을 알 수 없는 작업은 `value`를 비워 미완료 상태로 둡니다. 이때 `aria-valuenow`가 빠집니다.
-    - 단위가 퍼센트가 아니면 `valueText`로 사람이 읽을 문구를 직접 지정합니다.
-    - 진행률이 아니라 단순 대기라면 Loading을 사용합니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="상태 색">
-      <Canvas of={ProgressStories.Tones} />
-    </DocsSection>
-    <DocsSection title="크기">
-      <Canvas of={ProgressStories.Sizes} />
-    </DocsSection>
-    <DocsSection title="완료 시점 미정">
-      <Canvas of={ProgressStories.Indeterminate} />
-    </DocsSection>
-    <DocsSection title="값 문구 지정">
-      <Canvas of={ProgressStories.ValueText} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

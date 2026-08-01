@@ -1,30 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as TabsStories from './Tabs.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Tabs.doc'
+import * as stories from './Tabs.stories'
 
-<Meta of={TabsStories} />
+{/* This page renders from Tabs.doc.ts. Edit the doc, not this file. */}
 
-# Tabs
+<Meta of={stories} />
 
-같은 자리에서 여러 화면을 전환합니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={TabsStories.Basic} />
-
-    - 기본은 방향키 이동과 동시에 패널이 바뀝니다. 전환 비용이 크면 `manual`로 두고 Enter나 Space로 확정합니다.
-    - 탭 라벨은 짧게 쓰고 패널의 내용과 이름을 맞춥니다.
-    - 순서가 중요한 단계 이동에는 사용하지 않습니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="수동 활성화">
-      <Canvas of={TabsStories.ManualActivation} />
-    </DocsSection>
-    <DocsSection title="세로 배치">
-      <Canvas of={TabsStories.Vertical} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />
