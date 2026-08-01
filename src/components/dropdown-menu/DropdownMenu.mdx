@@ -1,0 +1,27 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as DropdownMenuStories from './DropdownMenu.stories'
+
+<Meta of={DropdownMenuStories} />
+
+# DropdownMenu
+
+트리거에서 펼쳐지는 명령 목록입니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={DropdownMenuStories.Basic} />
+
+    - 명령을 실행하는 메뉴입니다. 값을 고르는 용도라면 Select를 사용합니다.
+    - 위/아래 방향키로 항목을 이동하고 Escape로 닫으며 포커스는 트리거로 돌아갑니다.
+    - 항목이 많으면 `DropdownMenuLabel`과 `DropdownMenuSeparator`로 묶습니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="키보드로 열기">
+      <Canvas of={DropdownMenuStories.KeyboardOpenLast} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

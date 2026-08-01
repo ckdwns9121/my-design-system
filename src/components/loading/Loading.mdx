@@ -1,0 +1,27 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as LoadingStories from './Loading.stories'
+
+<Meta of={LoadingStories} />
+
+# Loading
+
+처리 중이라는 사실을 알립니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={LoadingStories.Sizes} />
+
+    - `role="status"`로 상태를 알리므로 `label`은 항상 의미 있는 문장으로 채웁니다.
+    - 레이아웃이 크게 비는 자리에는 스피너 대신 자리 표시자를 검토합니다.
+    - 버튼 안의 로딩은 Button의 `isLoading`을 사용합니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="라벨 노출">
+      <Canvas of={LoadingStories.WithLabel} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

@@ -3,6 +3,7 @@ import { expect } from 'storybook/test'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './Tabs'
 
 const meta = {
+  title: 'Components/Tabs',
   component: Tabs,
   tags: ['ai-generated'],
   args: {

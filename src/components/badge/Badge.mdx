@@ -1,0 +1,30 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as BadgeStories from './Badge.stories'
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+항목의 상태나 분류를 짧은 라벨로 표시합니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={BadgeStories.StatusSet} />
+
+    - 클릭할 수 있는 요소로 쓰지 않습니다. 동작이 필요하면 Button을 사용합니다.
+    - 상태 색은 status 토큰을 따르고, 색과 함께 텍스트로도 상태를 전달합니다.
+    - 한두 단어로 끝나지 않는 내용은 Badge 대신 본문에 씁니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="기본">
+      <Canvas of={BadgeStories.Neutral} />
+    </DocsSection>
+    <DocsSection title="브랜드">
+      <Canvas of={BadgeStories.Brand} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

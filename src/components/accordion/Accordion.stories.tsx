@@ -10,6 +10,7 @@ import {
 } from './Accordion'
 
 const meta = {
+  title: 'Components/Accordion',
   component: Accordion,
   tags: ['ai-generated'],
   parameters: {

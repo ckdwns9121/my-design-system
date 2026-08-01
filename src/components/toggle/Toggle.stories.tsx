@@ -3,6 +3,7 @@ import { expect } from 'storybook/test'
 import { Toggle } from './Toggle'
 
 const meta = {
+  title: 'Components/Toggle',
   component: Toggle,
   tags: ['ai-generated'],
   args: {

@@ -1,0 +1,31 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as ComboboxStories from './Combobox.stories'
+
+<Meta of={ComboboxStories} />
+
+# Combobox
+
+입력으로 목록을 좁혀 하나의 값을 고릅니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={ComboboxStories.Playground} />
+
+    - 선택지가 많아 스크롤만으로 찾기 어려울 때 사용합니다. 목록이 짧으면 Select가 낫습니다.
+    - 필터링은 소비자가 담당합니다. 프리미티브는 열림 상태, 활성 옵션, 선택만 관리합니다.
+    - `ComboboxEmpty`는 `ComboboxList` 바깥에 둡니다. option 없는 listbox는 ARIA 위반입니다.
+    - 포커스는 입력에 남고 활성 옵션은 `aria-activedescendant`로 가리킵니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="검색 결과 없음">
+      <Canvas of={ComboboxStories.EmptyResult} />
+    </DocsSection>
+    <DocsSection title="초기값">
+      <Canvas of={ComboboxStories.Prefilled} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

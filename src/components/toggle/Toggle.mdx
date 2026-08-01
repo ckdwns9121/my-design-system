@@ -1,0 +1,30 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as ToggleStories from './Toggle.stories'
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+눌린 상태를 유지하는 버튼입니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={ToggleStories.Uncontrolled} />
+
+    - `aria-pressed`로 눌림 상태를 알립니다. 설정을 켜고 끄는 자리에는 Switch를 사용합니다.
+    - 툴바에서 서식이나 보기 방식을 바꾸는 용도에 맞습니다.
+    - 아이콘만 둘 때는 `aria-label`로 이름을 줍니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="제어 모드">
+      <Canvas of={ToggleStories.Controlled} />
+    </DocsSection>
+    <DocsSection title="비활성">
+      <Canvas of={ToggleStories.Disabled} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

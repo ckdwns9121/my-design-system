@@ -12,6 +12,7 @@ import {
 } from './Select'
 
 const meta = {
+  title: 'Components/Select',
   component: Select,
   tags: ['ai-generated'],
   parameters: {

@@ -11,6 +11,7 @@ import {
 } from './DropdownMenu'
 
 const meta = {
+  title: 'Components/DropdownMenu',
   component: DropdownMenu,
   tags: ['ai-generated'],
   parameters: {

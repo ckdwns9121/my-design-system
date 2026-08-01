@@ -15,6 +15,7 @@ import {
 } from './Table'
 
 const meta = {
+  title: 'Components/Table',
   component: Table,
   tags: ['ai-generated'],
   parameters: {

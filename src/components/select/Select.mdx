@@ -1,0 +1,27 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as SelectStories from './Select.stories'
+
+<Meta of={SelectStories} />
+
+# Select
+
+정해진 목록에서 하나의 값을 고릅니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={SelectStories.Basic} />
+
+    - 선택 전 상태를 설명하는 placeholder를 지정합니다.
+    - 글자를 입력하면 해당 글자로 시작하는 옵션으로 이동합니다.
+    - 여러 값을 골라야 하면 MultiSelect, 검색이 필요하면 Combobox를 사용합니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="타이핑으로 찾기">
+      <Canvas of={SelectStories.Typeahead} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

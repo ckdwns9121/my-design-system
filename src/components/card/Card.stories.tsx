@@ -11,6 +11,7 @@ import {
 } from './Card'
 
 const meta = {
+  title: 'Components/Card',
   component: Card,
   tags: ['ai-generated'],
 } satisfies Meta<typeof Card>

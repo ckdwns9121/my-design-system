@@ -4,6 +4,12 @@ export {
   type UseControllableStateOptions,
 } from './useControllableState'
 export {
+  usePagination,
+  type PaginationItem,
+  type UsePaginationOptions,
+  type UsePaginationResult,
+} from './usePagination'
+export {
   useTableSelection,
   type TableRowId,
   type TableSelectionMode,
