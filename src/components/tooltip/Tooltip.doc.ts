@@ -12,7 +12,7 @@ export const doc: ComponentDoc = {
   ],
   import: 'src/components',
   exports: [
-    'TooltipRoot',
+    'Tooltip',
     'TooltipContent',
     'TooltipPortal',
     'TooltipTrigger',
@@ -27,7 +27,7 @@ export const doc: ComponentDoc = {
   ],
   headless: {
     exports: [
-      'TooltipRoot',
+      'Tooltip',
       'TooltipTrigger',
       'TooltipPortal',
       'TooltipContent',

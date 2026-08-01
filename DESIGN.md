@@ -43,10 +43,11 @@
 ## Components
 - Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`, `Icons`.
 - Documentation surface: every component has an MDX docs page attached to its CSF file, built from `src/docs/DocsTabs.tsx` (Overview and Properties tabs, with style variations grouped under Overview). Docs pages show stories and token data; explanatory prose stays out of them.
-- Existing components to reuse: `Button`, `Badge`, `Card`, `Table`, `TextField`, `Toggle`.
-- Behavior-carrying components: `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`, `Switch`, `RadioGroup`, `MultiSelect`, `Combobox`, and `Toast` expose headless behavior with token-driven styled layers. `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
+- Existing components to reuse: `Button`, `Badge`, `Card`, `Table`, `TextField`, `ToggleButton`.
+- Naming: compound headless roots end in `Root`; the styled root uses the component name. A component name that collides with another component is narrowed, which is why `Toggle` became `ToggleButton` beside `Switch`.
+- Behavior-carrying components: `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`, `Switch`, `RadioGroup`, `MultiSelect`, `Combobox`, `ToggleButton`, and `Toast` expose headless behavior with token-driven styled layers. `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
 - Presentational components: `Alert`, `Loading`, `Progress`, `EmptyState`, `Breadcrumb`, `Textarea`, `IconButton`, and `Pagination` own no cross-component state; `IconButton` requires a `label` because an icon carries no text; `Pagination` takes its page window from the `usePagination` hook.
-- Implemented headless primitives: `useControllableState`, `usePagination`, `Toggle`, `Checkbox`, `Switch`, `RadioGroup`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `MultiSelect`, `Combobox`, `Tooltip`, `Toast`, and Table grid behavior.
+- Implemented headless primitives: `useControllableState`, `usePagination`, `ToggleButton`, `Checkbox`, `Switch`, `RadioGroup`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `MultiSelect`, `Combobox`, `Tooltip`, `Toast`, and Table grid behavior.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges and alerts; input helper/error states; table ascending/descending sort and selected/indeterminate states; single vs multiple listbox selection.
 - Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases, including inverse and overlay surfaces. Headless primitives own state, ARIA, keyboard, focus, and overlay behavior. Styled components consume generated semantic Tailwind classes.
 
@@ -79,6 +80,7 @@
 
 ## Implementation constraints
 - Framework/styling system: React, TypeScript, Vite, Tailwind CSS v4, Storybook.
+- Class-merge constraints: `cn()` resolves Tailwind conflicts through `tailwind-merge`, so a caller-supplied class overrides the component default by argument order.
 - Design-token constraints: No component-level raw hex colors. Color CSS is generated from `src/tokens/color-tokens.json`.
 - Headless constraints: Headless primitives should support controlled/uncontrolled usage where applicable, expose ARIA state, and avoid Tailwind or token-specific classes.
 - Performance constraints: No runtime token generation in the browser.

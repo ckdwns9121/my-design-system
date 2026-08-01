@@ -20,7 +20,7 @@ export type {
   PopoverTriggerProps,
 }
 
-export function PopoverRoot(props: PopoverRootProps) {
+export function Popover(props: PopoverRootProps) {
   return <HeadlessPopoverRoot {...props} />
 }
 

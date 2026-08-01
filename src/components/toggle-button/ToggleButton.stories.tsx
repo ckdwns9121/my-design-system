@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect } from 'storybook/test'
-import { Toggle } from './Toggle'
+import { ToggleButton } from './ToggleButton'
 
 const meta = {
-  title: 'Components/Toggle',
-  component: Toggle,
+  title: 'Components/ToggleButton',
+  component: ToggleButton,
   tags: ['ai-generated'],
   args: {
     children: 'Bold',
   },
-} satisfies Meta<typeof Toggle>
+} satisfies Meta<typeof ToggleButton>
 
 export default meta
 type Story = StoryObj<typeof meta>

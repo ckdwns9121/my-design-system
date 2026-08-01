@@ -82,12 +82,12 @@ function GridFixture({
         <TableRow onSelectedChange={onRowSelectedChange} selected={false}>
           <TableCell>
             <TableSelectionCheckbox
-              aria-label="Select Toggle"
+              aria-label="Select ToggleButton"
               checked={false}
               onChange={() => undefined}
             />
           </TableCell>
-          <TableCell>Toggle</TableCell>
+          <TableCell>ToggleButton</TableCell>
           <TableCell>Ready</TableCell>
         </TableRow>
       </TableBody>
@@ -125,7 +125,7 @@ describe('headless Table', () => {
 
     pressKey(selectAll as HTMLInputElement, 'PageDown')
     expect(document.activeElement).toBe(
-      container.querySelector<HTMLInputElement>('[aria-label="Select Toggle"]'),
+      container.querySelector<HTMLInputElement>('[aria-label="Select ToggleButton"]'),
     )
   })
 
@@ -142,7 +142,7 @@ describe('headless Table', () => {
     const sortButton = sortableHeader.querySelector('button')
     const row = container.querySelector('tbody tr')
     const nameCell = container.querySelectorAll('tbody td')[1]
-    const rowCheckbox = container.querySelector<HTMLInputElement>('[aria-label="Select Toggle"]')
+    const rowCheckbox = container.querySelector<HTMLInputElement>('[aria-label="Select ToggleButton"]')
 
     expect(sortableHeader.hasAttribute('aria-sort')).toBe(false)
     expect(row?.getAttribute('aria-selected')).toBe('false')

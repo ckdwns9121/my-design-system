@@ -100,7 +100,7 @@ import { TabsRoot, TabsList, TabsTrigger, TabsContent } from './headless'
 | `Checkbox` | 독립 선택. indeterminate 지원 | ✓ |
 | `RadioGroup` | 배타적 선택. 그룹 단일 탭 정지점 | ✓ |
 | `Switch` | 즉시 반영되는 설정 | ✓ |
-| `Toggle` | `aria-pressed` 기반 양방향 버튼 | ✓ |
+| `ToggleButton` | `aria-pressed` 기반 양방향 버튼 | ✓ |
 | `Select` | 목록에서 하나 선택. typeahead | ✓ |
 | `MultiSelect` | 여러 값 선택. `aria-multiselectable` | ✓ |
 | `Combobox` | 입력으로 좁혀 선택. list autocomplete | ✓ |
@@ -224,6 +224,7 @@ X.doc.ts ─┬─→ X.mdx           (Storybook 문서 페이지)
 - headless layer는 스타일 결정을 하지 않습니다.
 - styled layer는 headless의 상태와 ARIA를 유지한 채 시각 스타일만 더합니다.
 - 네이티브 HTML semantics를 우선합니다. `<button>`, `<input>`, `<table>`로 되는 동작을 `div`와 ARIA로 다시 만들지 않습니다.
+- 합성 컴포넌트의 headless 루트는 `*Root`, styled 루트는 컴포넌트 이름 그대로입니다.
 - 새 컴포넌트는 story와 `X.doc.ts`, 그리고 interaction 또는 접근성 검증을 함께 추가합니다.
 - MDX는 직접 수정하지 않습니다. 내용은 `X.doc.ts`에 씁니다.
 

@@ -6,19 +6,19 @@ import {
   DialogDescription,
   DialogOverlay,
   DialogPortal,
-  DialogRoot,
+  Dialog,
   DialogTitle,
   DialogTrigger,
 } from './Dialog'
 
 const meta = {
   title: 'Components/Dialog',
-  component: DialogRoot,
+  component: Dialog,
   tags: ['ai-generated'],
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof DialogRoot>
+} satisfies Meta<typeof Dialog>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -28,7 +28,7 @@ export const Basic: Story = {
     children: null,
   },
   render: () => (
-    <DialogRoot>
+    <Dialog>
       <DialogTrigger>Open dialog</DialogTrigger>
       <DialogPortal>
         <DialogOverlay />
@@ -56,7 +56,7 @@ export const Basic: Story = {
           </div>
         </DialogContent>
       </DialogPortal>
-    </DialogRoot>
+    </Dialog>
   ),
   play: async ({ canvas, canvasElement, userEvent }) => {
     const trigger = canvas.getByRole('button', { name: /open dialog/i })
@@ -90,7 +90,7 @@ export const LabelFallback: Story = {
     children: null,
   },
   render: () => (
-    <DialogRoot>
+    <Dialog>
       <DialogTrigger>Open preferences</DialogTrigger>
       <DialogPortal>
         <DialogOverlay />
@@ -105,7 +105,7 @@ export const LabelFallback: Story = {
           </div>
         </DialogContent>
       </DialogPortal>
-    </DialogRoot>
+    </Dialog>
   ),
   play: async ({ canvas, canvasElement, userEvent }) => {
     const trigger = canvas.getByRole('button', { name: /open preferences/i })

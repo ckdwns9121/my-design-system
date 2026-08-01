@@ -10,6 +10,7 @@ export const doc: ComponentDoc = {
     'on off',
     '설정',
     'ios toggle',
+    'toggle',
   ],
   import: 'src/components',
   exports: [
@@ -22,7 +23,7 @@ export const doc: ComponentDoc = {
   ],
   related: [
     { name: 'Checkbox', when: '폼을 제출해야 값이 반영될 때' },
-    { name: 'Toggle', when: '툴바에서 서식이나 보기 방식을 바꿀 때' },
+    { name: 'ToggleButton', when: '툴바에서 서식이나 보기 방식을 바꿀 때' },
   ],
   headless: {
     exports: [

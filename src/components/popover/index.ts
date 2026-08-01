@@ -2,7 +2,7 @@ export {
   PopoverClose,
   PopoverContent,
   PopoverPortal,
-  PopoverRoot,
+  Popover,
   PopoverTrigger,
 } from './Popover'
 export type {

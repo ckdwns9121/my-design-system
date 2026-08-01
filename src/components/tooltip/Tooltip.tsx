@@ -17,7 +17,7 @@ export type {
   TooltipTriggerProps,
 }
 
-export function TooltipRoot(props: TooltipRootProps) {
+export function Tooltip(props: TooltipRootProps) {
   return <HeadlessTooltipRoot {...props} />
 }
 

@@ -28,7 +28,7 @@ type Story = StoryObj<typeof meta>
 
 const rows = [
   { component: 'Button', layer: 'Styled', status: 'Ready', owner: 'Components' },
-  { component: 'Toggle', layer: 'Headless + Styled', status: 'Ready', owner: 'Components' },
+  { component: 'ToggleButton', layer: 'Headless + Styled', status: 'Ready', owner: 'Components' },
   { component: 'Checkbox', layer: 'Headless + Styled', status: 'Next', owner: 'Components' },
   { component: 'Table', layer: 'Headless + Styled', status: 'Ready', owner: 'Components' },
 ]
@@ -235,7 +235,7 @@ export const InteractiveGrid: Story = {
 
     await userEvent.click(componentSortButton)
     await expect(componentHeader).toHaveAttribute('aria-sort', 'descending')
-    await expect(grid.querySelectorAll('tbody tr')[0]).toHaveTextContent('Toggle')
+    await expect(grid.querySelectorAll('tbody tr')[0]).toHaveTextContent('ToggleButton')
 
     const toggleCheckbox = canvas.getByRole('checkbox', { name: /select toggle/i })
     const toggleRow = toggleCheckbox.closest('tr')

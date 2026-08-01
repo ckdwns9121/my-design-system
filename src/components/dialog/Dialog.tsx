@@ -41,7 +41,7 @@ const closeVariantClasses: Record<DialogCloseVariant, string> = {
     'border-border-default bg-surface-panel text-content-default hover:bg-surface-muted',
 }
 
-export function DialogRoot(props: DialogRootProps) {
+export function Dialog(props: DialogRootProps) {
   return <HeadlessDialogRoot {...props} />
 }
 
