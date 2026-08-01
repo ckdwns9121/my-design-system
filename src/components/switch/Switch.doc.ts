@@ -11,6 +11,7 @@ export const doc: ComponentDoc = {
     '설정',
     'ios toggle',
     'toggle',
+    '토글',
   ],
   import: 'src/components',
   exports: [

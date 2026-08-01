@@ -31,6 +31,16 @@
 - `Toast`는 단일 루트가 없어 `ToastProvider`와 `ToastViewport`로 나뉩니다. 각 컴포넌트의 실제 export는 `X.doc.ts`의 `exports`에 기록합니다.
 - 이름이 일반 명사와 겹쳐 다른 컴포넌트와 혼동되면 이름을 좁힙니다. `Toggle`은 `Switch`와 구분되지 않아 `ToggleButton`이 되었습니다.
 
+## MCP 서버
+
+이 저장소에는 디자인 시스템 자체를 조회하는 MCP 서버가 있습니다 (`.mcp.json`, `scripts/mcp/server.mjs`).
+
+- `search(query)` — 무엇을 만들지 설명하면 컴포넌트나 아이콘 후보를 돌려줍니다. 한국어로 물어도 됩니다.
+- `get(name)` — 사용 규칙, import할 export, headless 대응물, 구현한 ARIA 패턴을 돌려줍니다.
+- `tokens(query)` — semantic 토큰을 값과 Tailwind class로 해석합니다.
+
+컴포넌트를 고르거나 색을 정하기 전에 먼저 물어봅니다. 근거는 `X.doc.ts`에 있고 이 서버가 그것을 읽습니다.
+
 ## 작업 순서
 
 1. 변경 전 관련 파일과 기존 패턴을 확인합니다.
@@ -66,6 +76,7 @@ npm run tokens:build
 
 ```bash
 npm run docs:manifest
+npx vitest --project node run
 ```
 
 ## 커밋 타입

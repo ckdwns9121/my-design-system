@@ -154,6 +154,18 @@ import { TabsRoot, TabsList, TabsTrigger, TabsContent } from './headless'
 
 아이콘은 `currentColor`를 따르므로 색상 prop이 없고, 기본이 장식(`aria-hidden`)입니다. 아이콘만으로 의미를 전달할 때만 `title`을 넘겨 이름을 갖게 합니다. 새 아이콘은 `createIcon`으로 만들어야 크기·색·접근성 처리가 같아집니다.
 
+### 에이전트로 쓰기
+
+이 저장소에서 작업하는 에이전트는 `.mcp.json`을 통해 디자인 시스템에 직접 물어볼 수 있습니다.
+
+```txt
+search("설정 켜고 끄기")  → Switch  (+ "ToggleButton은 툴바 서식용" 이라는 구분까지)
+get("Switch")            → 사용 규칙, export, headless 대응물, ARIA 패턴
+tokens("danger")         → status-danger-solid = #b91c1c (bg-status-danger-solid)
+```
+
+파일을 찾아 읽지 않아도 되고, 답의 근거는 `X.doc.ts` 한 곳입니다.
+
 <br />
 
 ## 토큰
@@ -193,8 +205,9 @@ src/
 각 컴포넌트 폴더에는 `X.doc.ts`가 있습니다. **문서는 산문이 아니라 데이터입니다.**
 
 ```txt
-X.doc.ts ─┬─→ X.mdx           (Storybook 문서 페이지)
-          └─→ component-manifest.json  (에이전트가 읽는 형태)
+X.doc.ts ─┬─→ X.mdx                      (Storybook 문서 페이지)
+          ├─→ component-manifest.json    (전체 목록)
+          └─→ MCP search / get           (에이전트가 물어보는 형태)
 ```
 
 한 번 쓴 규칙이 사람과 에이전트 양쪽에 도달하고, 둘이 어긋날 수 없습니다. 스토리 이름이 바뀌면 `npm run test`가 실패합니다.
@@ -211,6 +224,7 @@ X.doc.ts ─┬─→ X.mdx           (Storybook 문서 페이지)
 | `npm run build-storybook` | 정적 Storybook 빌드 |
 | `npm run tokens:build` | SSOT 색상 토큰에서 Tailwind CSS 생성 |
 | `npm run docs:manifest` | `*.doc.ts`에서 `docs/component-manifest.json` 생성 |
+| `npm run mcp` | MCP 서버 (stdio). 보통은 `.mcp.json`으로 자동 연결됩니다 |
 | `npm run lint` | Oxlint |
 | `npm run test` | headless primitive 단위 테스트 |
 | `npm run test:storybook` | Chromium 기반 interaction · 접근성 테스트 |

@@ -16,6 +16,12 @@ export default defineConfig({
   test: {
     projects: [{
       test: {
+        name: 'node',
+        include: ['scripts/**/*.test.mjs'],
+        environment: 'node'
+      }
+    }, {
+      test: {
         name: 'unit',
         include: ['src/**/*.test.{ts,tsx}'],
         browser: {
