@@ -49,7 +49,9 @@ const semanticLeaves = collectLeaves(tokens.semantic, ['semantic'], 'semantic')
 
 const lines = [
   '/* This file is generated from src/tokens/color-tokens.json. Do not edit by hand. */',
-  '@theme {',
+  '/* `static` keeps every token as a CSS variable so docs and inline styles can read',
+  '   var(--color-*) even when no utility class references the token. */',
+  '@theme static {',
   '  /* Primitive color tokens */',
   ...primitiveLeaves.map(([name, value]) => `  ${name}: ${value};`),
   '',
