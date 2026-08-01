@@ -1,30 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as TableStories from './Table.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Table.doc'
+import * as stories from './Table.stories'
 
-<Meta of={TableStories} />
+{/* This page renders from Table.doc.ts. Edit the doc, not this file. */}
 
-# Table
+<Meta of={stories} />
 
-행과 열로 이루어진 데이터를 보여줍니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={TableStories.Basic} />
-
-    - 기본은 네이티브 table 시맨틱을 그대로 씁니다.
-    - 정렬과 선택이 필요하면 `grid` 모드를 켜서 `role="grid"`, `aria-sort`, `aria-selected`를 활성화합니다.
-    - 정렬 가능한 헤더는 버튼으로 만들어 키보드로도 조작할 수 있게 합니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="푸터">
-      <Canvas of={TableStories.WithFooter} />
-    </DocsSection>
-    <DocsSection title="정렬과 선택">
-      <Canvas of={TableStories.InteractiveGrid} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

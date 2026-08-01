@@ -1,30 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as AlertStories from './Alert.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Alert.doc'
+import * as stories from './Alert.stories'
 
-<Meta of={AlertStories} />
+{/* This page renders from Alert.doc.ts. Edit the doc, not this file. */}
 
-# Alert
+<Meta of={stories} />
 
-작업 결과나 주의할 상태를 화면에 남겨 알립니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={AlertStories.Tones} />
-
-    - `warning`과 `danger`는 `role="alert"`로 즉시 읽히고, `info`와 `success`는 `role="status"`로 현재 읽기를 끊지 않습니다.
-    - 색만으로 의미를 전달하지 않도록 제목에 상태를 함께 씁니다.
-    - 사용자가 복구할 수 있는 오류에는 `action`으로 다음 행동을 붙입니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="제목만">
-      <Canvas of={AlertStories.TitleOnly} />
-    </DocsSection>
-    <DocsSection title="액션 포함">
-      <Canvas of={AlertStories.WithAction} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

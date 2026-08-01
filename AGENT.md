@@ -27,7 +27,7 @@
 
 1. 변경 전 관련 파일과 기존 패턴을 확인합니다.
 2. headless 로직과 styled layer를 분리할 수 있는지 먼저 판단합니다.
-3. 새 컴포넌트는 Storybook story를 함께 추가합니다.
+3. 새 컴포넌트는 Storybook story와 `X.doc.ts`를 함께 추가합니다. MDX는 doc 데이터를 렌더링만 하므로 직접 수정하지 않습니다.
 4. 접근성 상태가 있는 컴포넌트는 story `play`에서 ARIA 또는 interaction을 검증합니다.
 5. 색상 토큰을 변경한 경우 `npm run tokens:build`를 실행합니다.
 6. 변경 범위에 맞는 검증 명령을 실행합니다.
@@ -52,6 +52,12 @@ npm run build-storybook
 
 ```bash
 npm run tokens:build
+```
+
+컴포넌트 doc을 변경한 경우:
+
+```bash
+npm run docs:manifest
 ```
 
 ## 커밋 타입

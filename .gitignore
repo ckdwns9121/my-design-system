@@ -28,3 +28,6 @@ storybook-static
 
 # Vitest browser attachments
 .vitest-attachments
+
+# Vitest failure screenshots
+**/__screenshots__

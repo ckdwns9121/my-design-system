@@ -1,27 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as BreadcrumbStories from './Breadcrumb.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Breadcrumb.doc'
+import * as stories from './Breadcrumb.stories'
 
-<Meta of={BreadcrumbStories} />
+{/* This page renders from Breadcrumb.doc.ts. Edit the doc, not this file. */}
 
-# Breadcrumb
+<Meta of={stories} />
 
-현재 화면이 어느 경로에 있는지 보여주고 상위로 돌아갈 길을 만듭니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={BreadcrumbStories.Playground} />
-
-    - 마지막 항목은 링크가 아니라 `BreadcrumbPage`로 두어 `aria-current="page"`를 갖게 합니다.
-    - 구분자는 `aria-hidden`이라 스크린리더가 읽지 않습니다.
-    - 한 화면에 두 개 이상 두면 `label`로 서로 다른 이름을 줍니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="구분자 변경">
-      <Canvas of={BreadcrumbStories.CustomSeparator} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

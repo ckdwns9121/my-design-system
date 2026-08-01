@@ -1,27 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as CardStories from './Card.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './Card.doc'
+import * as stories from './Card.stories'
 
-<Meta of={CardStories} />
+{/* This page renders from Card.doc.ts. Edit the doc, not this file. */}
 
-# Card
+<Meta of={stories} />
 
-관련된 정보와 액션을 하나의 면으로 묶습니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={CardStories.Basic} />
-
-    - `CardHeader`, `CardContent`, `CardFooter`로 역할을 나눠 여백을 일관되게 유지합니다.
-    - 카드 전체를 링크로 만들지 않고 내부에 명시적인 액션을 둡니다.
-    - 목록에서 반복될 때는 카드마다 담는 정보의 종류를 맞춥니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="액션 포함">
-      <Canvas of={CardStories.WithActions} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />

@@ -1,34 +1,10 @@
-import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
-import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
-import * as MultiSelectStories from './MultiSelect.stories'
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ComponentDocs } from '../../docs/ComponentDocs'
+import { doc } from './MultiSelect.doc'
+import * as stories from './MultiSelect.stories'
 
-<Meta of={MultiSelectStories} />
+{/* This page renders from MultiSelect.doc.ts. Edit the doc, not this file. */}
 
-# MultiSelect
+<Meta of={stories} />
 
-목록에서 여러 값을 함께 고릅니다.
-
-<DocsTabs>
-  <DocsTab value="overview">
-    <Canvas of={MultiSelectStories.Playground} />
-
-    - 선택이 집합이라 옵션을 눌러도 목록이 닫히지 않습니다. Escape, Tab, 바깥 클릭으로만 닫힙니다.
-    - 목록은 `aria-multiselectable="true"`를 가지며 각 옵션이 `aria-selected`로 상태를 알립니다.
-    - 선택이 많아지면 트리거에는 앞의 몇 개만 두고 나머지는 개수로 요약합니다.
-    - 하나만 고르는 자리에는 Select를 사용합니다.
-  </DocsTab>
-  <DocsTab value="properties">
-    <ArgTypes />
-  </DocsTab>
-  <DocsTab value="styles">
-    <DocsSection title="선택 있음">
-      <Canvas of={MultiSelectStories.WithSelection} />
-    </DocsSection>
-    <DocsSection title="요약 표시">
-      <Canvas of={MultiSelectStories.CollapsedSummary} />
-    </DocsSection>
-    <DocsSection title="비활성 옵션">
-      <Canvas of={MultiSelectStories.DisabledOption} />
-    </DocsSection>
-  </DocsTab>
-</DocsTabs>
+<ComponentDocs doc={doc} stories={stories} />
