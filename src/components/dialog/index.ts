@@ -4,7 +4,7 @@ export {
   DialogDescription,
   DialogOverlay,
   DialogPortal,
-  DialogRoot,
+  Dialog,
   DialogTitle,
   DialogTrigger,
   type DialogCloseProps,

@@ -3,13 +3,13 @@ import { expect, screen, waitFor } from 'storybook/test'
 import {
   TooltipContent,
   TooltipPortal,
-  TooltipRoot,
+  Tooltip,
   TooltipTrigger,
 } from './Tooltip'
 
 const meta = {
   title: 'Components/Tooltip',
-  component: TooltipRoot,
+  component: Tooltip,
   tags: ['ai-generated'],
   args: {
     children: null,
@@ -17,19 +17,19 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof TooltipRoot>
+} satisfies Meta<typeof Tooltip>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Focus: Story = {
   render: () => (
-    <TooltipRoot>
+    <Tooltip>
       <TooltipTrigger>Save</TooltipTrigger>
       <TooltipPortal>
         <TooltipContent>Save changes</TooltipContent>
       </TooltipPortal>
-    </TooltipRoot>
+    </Tooltip>
   ),
   play: async ({ canvas, userEvent }) => {
     const trigger = canvas.getByRole('button', { name: /save/i })
@@ -47,12 +47,12 @@ export const Focus: Story = {
 
 export const Hover: Story = {
   render: () => (
-    <TooltipRoot closeGraceDuration={80} delayDuration={0}>
+    <Tooltip closeGraceDuration={80} delayDuration={0}>
       <TooltipTrigger>Export</TooltipTrigger>
       <TooltipPortal>
         <TooltipContent>Download CSV</TooltipContent>
       </TooltipPortal>
-    </TooltipRoot>
+    </Tooltip>
   ),
   play: async ({ canvas, userEvent }) => {
     const trigger = canvas.getByRole('button', { name: /export/i })

@@ -5,13 +5,13 @@ import {
   PopoverClose,
   PopoverContent,
   PopoverPortal,
-  PopoverRoot,
+  Popover,
   PopoverTrigger,
 } from './Popover'
 
 const meta = {
   title: 'Components/Popover',
-  component: PopoverRoot,
+  component: Popover,
   tags: ['ai-generated'],
   args: {
     children: null,
@@ -19,7 +19,7 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof PopoverRoot>
+} satisfies Meta<typeof Popover>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -28,7 +28,7 @@ function ControlledExample() {
   const [open, setOpen] = useState(false)
 
   return (
-    <PopoverRoot open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger>Review status</PopoverTrigger>
       <PopoverPortal>
         <PopoverContent>
@@ -43,13 +43,13 @@ function ControlledExample() {
           </div>
         </PopoverContent>
       </PopoverPortal>
-    </PopoverRoot>
+    </Popover>
   )
 }
 
 export const Basic: Story = {
   render: () => (
-    <PopoverRoot>
+    <Popover>
       <PopoverTrigger>Open details</PopoverTrigger>
       <PopoverPortal>
         <PopoverContent>
@@ -67,7 +67,7 @@ export const Basic: Story = {
           </div>
         </PopoverContent>
       </PopoverPortal>
-    </PopoverRoot>
+    </Popover>
   ),
   play: async ({ canvas, userEvent }) => {
     const trigger = canvas.getByRole('button', { name: /open details/i })

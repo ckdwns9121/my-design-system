@@ -68,7 +68,7 @@ export {
   DialogDescription,
   DialogOverlay,
   DialogPortal,
-  DialogRoot,
+  Dialog,
   DialogTitle,
   DialogTrigger,
 } from './dialog'
@@ -127,7 +127,7 @@ export {
   PopoverClose,
   PopoverContent,
   PopoverPortal,
-  PopoverRoot,
+  Popover,
   PopoverTrigger,
 } from './popover'
 export type {
@@ -201,7 +201,7 @@ export type {
 export {
   TooltipContent,
   TooltipPortal,
-  TooltipRoot,
+  Tooltip,
   TooltipTrigger,
 } from './tooltip'
 export type {
@@ -218,5 +218,5 @@ export type {
   ToastTone,
   ToastViewportProps,
 } from './toast'
-export { Toggle } from './toggle'
-export type { ToggleProps } from './toggle'
+export { ToggleButton } from './toggle-button'
+export type { ToggleButtonProps } from './toggle-button'

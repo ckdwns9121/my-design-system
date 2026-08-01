@@ -70,7 +70,7 @@ function SelectionHarness({
         </button>
       ))}
       <button onClick={toggleAllRows} type="button">
-        Toggle all
+        ToggleButton all
       </button>
       <output>{currentSelectedRowIds.join(',')}</output>
     </div>

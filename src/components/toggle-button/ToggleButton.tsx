@@ -1,20 +1,20 @@
-import type { ToggleProps as HeadlessToggleProps } from '../../headless'
-import { Toggle as HeadlessToggle } from '../../headless'
+import type { ToggleButtonProps as HeadlessToggleProps } from '../../headless'
+import { ToggleButton as HeadlessToggle } from '../../headless'
 import { cn } from '../../lib/cn'
 
-type ToggleSize = 'sm' | 'md' | 'lg'
+type ToggleButtonSize = 'sm' | 'md' | 'lg'
 
-export type ToggleProps = HeadlessToggleProps & {
-  size?: ToggleSize
+export type ToggleButtonProps = HeadlessToggleProps & {
+  size?: ToggleButtonSize
 }
 
-const sizeClasses: Record<ToggleSize, string> = {
+const sizeClasses: Record<ToggleButtonSize, string> = {
   sm: 'h-8 min-w-8 px-2 text-sm',
   md: 'h-10 min-w-10 px-3 text-sm',
   lg: 'h-12 min-w-12 px-4 text-base',
 }
 
-export function Toggle({ className, size = 'md', ...props }: ToggleProps) {
+export function ToggleButton({ className, size = 'md', ...props }: ToggleButtonProps) {
   return (
     <HeadlessToggle
       className={cn(

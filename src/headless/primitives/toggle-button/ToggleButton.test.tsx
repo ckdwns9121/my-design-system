@@ -2,7 +2,7 @@ import { act } from 'react'
 import type { ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { Toggle } from './Toggle'
+import { ToggleButton } from './ToggleButton'
 
 ;(globalThis as typeof globalThis & { IS_REACT_ACT_ENVIRONMENT: boolean }).IS_REACT_ACT_ENVIRONMENT =
   true
@@ -47,13 +47,13 @@ afterEach(() => {
   containers = []
 })
 
-describe('Toggle', () => {
+describe('ToggleButton', () => {
   it('toggles aria-pressed and data-state in uncontrolled mode', () => {
     const onPressedChange = vi.fn()
     const { container } = render(
-      <Toggle defaultPressed={false} onPressedChange={onPressedChange}>
+      <ToggleButton defaultPressed={false} onPressedChange={onPressedChange}>
         Bold
-      </Toggle>,
+      </ToggleButton>,
     )
     const button = container.querySelector('button')
 
@@ -72,9 +72,9 @@ describe('Toggle', () => {
   it('calls onPressedChange without changing displayed state in controlled mode', () => {
     const onPressedChange = vi.fn()
     const { container } = render(
-      <Toggle pressed={false} onPressedChange={onPressedChange}>
+      <ToggleButton pressed={false} onPressedChange={onPressedChange}>
         Bold
-      </Toggle>,
+      </ToggleButton>,
     )
     const button = container.querySelector('button')
 
@@ -88,12 +88,12 @@ describe('Toggle', () => {
   })
 
   it('reflects controlled pressed updates from the parent', () => {
-    const { container, rerender } = render(<Toggle pressed={false}>Bold</Toggle>)
+    const { container, rerender } = render(<ToggleButton pressed={false}>Bold</ToggleButton>)
     const button = container.querySelector('button')
 
     expect(button?.getAttribute('aria-pressed')).toBe('false')
 
-    rerender(<Toggle pressed>Bold</Toggle>)
+    rerender(<ToggleButton pressed>Bold</ToggleButton>)
 
     expect(button?.getAttribute('aria-pressed')).toBe('true')
   })
@@ -101,9 +101,9 @@ describe('Toggle', () => {
   it('does not toggle when disabled', () => {
     const onPressedChange = vi.fn()
     const { container } = render(
-      <Toggle disabled onPressedChange={onPressedChange}>
+      <ToggleButton disabled onPressedChange={onPressedChange}>
         Bold
-      </Toggle>,
+      </ToggleButton>,
     )
     const button = container.querySelector('button')
 

@@ -17,7 +17,7 @@ import {
   TableRow,
 } from './components/table'
 import { TextField } from './components/text-field'
-import { Toggle } from './components/toggle'
+import { ToggleButton } from './components/toggle-button'
 import { ColorPalette, Spacing, Typography } from './foundation'
 
 function App() {
@@ -55,7 +55,7 @@ function App() {
               <Badge tone="success">Success</Badge>
               <Badge tone="warning">Warning</Badge>
               <Badge tone="danger">Danger</Badge>
-              <Toggle defaultPressed>Toggle</Toggle>
+              <ToggleButton defaultPressed>자동 배차</ToggleButton>
             </CardContent>
           </Card>
 
@@ -74,7 +74,7 @@ function App() {
                 </TableHeader>
                 <TableBody>
                   <TableRow>
-                    <TableCell className="font-medium text-content-strong">Toggle</TableCell>
+                    <TableCell className="font-medium text-content-strong">ToggleButton</TableCell>
                     <TableCell>Ready</TableCell>
                   </TableRow>
                   <TableRow>

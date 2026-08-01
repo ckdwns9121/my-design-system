@@ -41,8 +41,8 @@ export type {
   TooltipRootProps,
   TooltipTriggerProps,
 } from './tooltip'
-export { Toggle } from './toggle'
-export type { ToggleProps } from './toggle'
+export { ToggleButton } from './toggle-button'
+export type { ToggleButtonProps } from './toggle-button'
 export { ToastProvider, ToastRoot, ToastViewport, useToast } from './toast'
 export type {
   ToastInput,

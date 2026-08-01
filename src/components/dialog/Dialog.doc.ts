@@ -13,7 +13,7 @@ export const doc: ComponentDoc = {
   ],
   import: 'src/components',
   exports: [
-    'DialogRoot',
+    'Dialog',
     'DialogClose',
     'DialogContent',
     'DialogDescription',
@@ -32,7 +32,7 @@ export const doc: ComponentDoc = {
   ],
   headless: {
     exports: [
-      'DialogRoot',
+      'Dialog',
       'DialogTrigger',
       'DialogPortal',
       'DialogOverlay',

@@ -12,7 +12,7 @@ export const doc: ComponentDoc = {
   ],
   import: 'src/components',
   exports: [
-    'PopoverRoot',
+    'Popover',
     'PopoverClose',
     'PopoverContent',
     'PopoverPortal',
@@ -29,7 +29,7 @@ export const doc: ComponentDoc = {
   ],
   headless: {
     exports: [
-      'PopoverRoot',
+      'Popover',
       'PopoverTrigger',
       'PopoverPortal',
       'PopoverContent',

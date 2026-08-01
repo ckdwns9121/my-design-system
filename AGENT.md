@@ -23,6 +23,14 @@
 - APG와 다르게 구현하는 키 동작이나 범위가 있다면 `DESIGN.md`, Storybook 설명 또는 기술 문서에 이유와 한계를 기록하고 테스트로 고정합니다.
 - 새 interactive primitive의 테스트에는 적용한 Pattern의 핵심 ARIA, 키보드 이동, 포커스 복구를 포함합니다. 복잡한 위젯은 자동화 검증과 별도로 브라우저·스크린리더 수동 검증 범위를 `Not-tested`에 남깁니다.
 
+## 네이밍 규칙
+
+- 합성 컴포넌트의 headless 루트는 `*Root`입니다. `TabsRoot`, `DialogRoot`, `SelectRoot`.
+- styled 루트는 컴포넌트 이름을 그대로 씁니다. `Tabs`, `Dialog`, `Select`.
+- 단일 컴포넌트는 양쪽 모두 이름 그대로입니다. `Switch`, `Checkbox`, `ToggleButton`.
+- `Toast`는 단일 루트가 없어 `ToastProvider`와 `ToastViewport`로 나뉩니다. 각 컴포넌트의 실제 export는 `X.doc.ts`의 `exports`에 기록합니다.
+- 이름이 일반 명사와 겹쳐 다른 컴포넌트와 혼동되면 이름을 좁힙니다. `Toggle`은 `Switch`와 구분되지 않아 `ToggleButton`이 되었습니다.
+
 ## 작업 순서
 
 1. 변경 전 관련 파일과 기존 패턴을 확인합니다.

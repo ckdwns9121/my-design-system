@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from 'react'
 import { useControllableState } from '../../hooks'
 
-export type ToggleProps = Omit<
+export type ToggleButtonProps = Omit<
   ButtonHTMLAttributes<HTMLButtonElement>,
   'aria-pressed' | 'defaultValue' | 'onChange' | 'value'
 > & {
@@ -10,7 +10,7 @@ export type ToggleProps = Omit<
   onPressedChange?: (pressed: boolean) => void
 }
 
-export function Toggle({
+export function ToggleButton({
   pressed,
   defaultPressed = false,
   onPressedChange,
@@ -18,7 +18,7 @@ export function Toggle({
   onClick,
   type = 'button',
   ...props
-}: ToggleProps) {
+}: ToggleButtonProps) {
   const [currentPressed, setCurrentPressed] = useControllableState({
     value: pressed,
     defaultValue: defaultPressed,
