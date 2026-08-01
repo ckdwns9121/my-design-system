@@ -38,15 +38,15 @@
 - Spacing/layout rhythm: Documented in `src/foundation/spacing`; Tailwind 4px spacing scale with compact, dashboard-like layouts.
 - Shape/radius/elevation: 6-8px radii for controls and panels; subtle panel shadow only where framing helps.
 - Motion: Minimal transitions for hover/focus state changes.
-- Imagery/iconography: None required for current token/component surfaces.
+- Imagery/iconography: `src/icons` holds a hand-drawn 24x24 stroke set built through `createIcon`. Icons take their color from `currentColor` and are decorative unless given a `title`.
 
 ## Components
-- Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`.
+- Existing foundation docs: `Docs`, `ColorPalette`, `Typography`, `Spacing`, `Icons`.
 - Documentation surface: every component has an MDX docs page attached to its CSF file, built from `src/docs/DocsTabs.tsx` (Overview and Properties tabs, with style variations grouped under Overview). Docs pages show stories and token data; explanatory prose stays out of them.
 - Existing components to reuse: `Button`, `Badge`, `Card`, `Table`, `TextField`, `Toggle`.
-- Behavior-carrying components: `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`, `Switch`, `RadioGroup`, `MultiSelect`, and `Combobox` expose headless behavior with token-driven styled layers. `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
-- Presentational components: `Alert`, `Loading`, `Progress`, `EmptyState`, `Breadcrumb`, `Textarea`, and `Pagination` own no cross-component state; `Pagination` takes its page window from the `usePagination` hook.
-- Implemented headless primitives: `useControllableState`, `usePagination`, `Toggle`, `Checkbox`, `Switch`, `RadioGroup`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `MultiSelect`, `Combobox`, `Tooltip`, and Table grid behavior.
+- Behavior-carrying components: `Checkbox`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `Tooltip`, `Switch`, `RadioGroup`, `MultiSelect`, `Combobox`, and `Toast` expose headless behavior with token-driven styled layers. `Table` keeps native table behavior by default and enables sortable, selectable grid behavior through the opt-in `grid` mode.
+- Presentational components: `Alert`, `Loading`, `Progress`, `EmptyState`, `Breadcrumb`, `Textarea`, `IconButton`, and `Pagination` own no cross-component state; `IconButton` requires a `label` because an icon carries no text; `Pagination` takes its page window from the `usePagination` hook.
+- Implemented headless primitives: `useControllableState`, `usePagination`, `Toggle`, `Checkbox`, `Switch`, `RadioGroup`, `Tabs`, `Accordion`, `Dialog`, `Popover`, `DropdownMenu`, `Select`, `MultiSelect`, `Combobox`, `Tooltip`, `Toast`, and Table grid behavior.
 - Variants and states: Primary, secondary, subtle, danger; success/warning/danger status badges and alerts; input helper/error states; table ascending/descending sort and selected/indeterminate states; single vs multiple listbox selection.
 - Token/component ownership: `src/tokens/color-tokens.json` owns color values and aliases, including inverse and overlay surfaces. Headless primitives own state, ARIA, keyboard, focus, and overlay behavior. Styled components consume generated semantic Tailwind classes.
 
