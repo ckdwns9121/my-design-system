@@ -4,6 +4,7 @@ import { expect } from 'storybook/test'
 import { Checkbox } from './Checkbox'
 
 const meta = {
+  title: 'Components/Checkbox',
   component: Checkbox,
   tags: ['ai-generated'],
   args: {

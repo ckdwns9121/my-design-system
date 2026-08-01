@@ -1,0 +1,33 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as EmptyStateStories from './EmptyState.stories'
+
+<Meta of={EmptyStateStories} />
+
+# EmptyState
+
+보여줄 데이터가 없을 때 이유와 다음 행동을 안내합니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={EmptyStateStories.Playground} />
+
+    - "데이터 없음"으로 끝내지 않고 왜 비어 있는지와 무엇을 하면 되는지를 함께 씁니다.
+    - 필터 때문에 비었다면 필터를 지우는 액션을 붙입니다.
+    - `media`는 장식이므로 의미를 담지 않습니다. 스크린리더에서 감춰집니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="제목만">
+      <Canvas of={EmptyStateStories.TitleOnly} />
+    </DocsSection>
+    <DocsSection title="액션 포함">
+      <Canvas of={EmptyStateStories.WithAction} />
+    </DocsSection>
+    <DocsSection title="일러스트 포함">
+      <Canvas of={EmptyStateStories.WithMedia} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

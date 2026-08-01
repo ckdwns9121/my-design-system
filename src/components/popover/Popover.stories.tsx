@@ -10,6 +10,7 @@ import {
 } from './Popover'
 
 const meta = {
+  title: 'Components/Popover',
   component: PopoverRoot,
   tags: ['ai-generated'],
   args: {

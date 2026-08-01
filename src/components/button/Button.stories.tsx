@@ -3,6 +3,7 @@ import { expect } from 'storybook/test'
 import { Button } from './Button'
 
 const meta = {
+  title: 'Components/Button',
   component: Button,
   tags: ['ai-generated'],
   args: {

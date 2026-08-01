@@ -1,0 +1,33 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as SwitchStories from './Switch.stories'
+
+<Meta of={SwitchStories} />
+
+# Switch
+
+설정을 즉시 켜고 끕니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={SwitchStories.States} />
+
+    - 저장 버튼 없이 바로 반영되는 설정에 사용합니다. 제출이 필요하면 Checkbox를 사용합니다.
+    - 버튼에는 `<label for>`를 걸 수 없어 보이는 라벨을 `aria-labelledby`로 연결합니다.
+    - 라벨을 생략할 때는 `aria-label`을 직접 넘깁니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="설명 포함">
+      <Canvas of={SwitchStories.WithDescription} />
+    </DocsSection>
+    <DocsSection title="크기">
+      <Canvas of={SwitchStories.Sizes} />
+    </DocsSection>
+    <DocsSection title="라벨 없음">
+      <Canvas of={SwitchStories.WithoutLabel} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

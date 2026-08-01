@@ -1,0 +1,34 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as PaginationStories from './Pagination.stories'
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+긴 목록을 페이지 단위로 나눠 이동합니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={PaginationStories.MiddlePage} />
+
+    - 현재 페이지는 `aria-current="page"`로 표시합니다.
+    - 페이지가 이동해도 버튼 개수가 일정하게 유지되어 레이아웃이 흔들리지 않습니다.
+    - 생략 기호는 `aria-hidden`이라 스크린리더가 읽지 않습니다.
+    - 페이지 수가 0이면 아무것도 렌더링하지 않습니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="마지막 페이지">
+      <Canvas of={PaginationStories.LastPage} />
+    </DocsSection>
+    <DocsSection title="페이지가 적을 때">
+      <Canvas of={PaginationStories.FewPages} />
+    </DocsSection>
+    <DocsSection title="넓은 범위">
+      <Canvas of={PaginationStories.WiderWindow} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

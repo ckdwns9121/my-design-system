@@ -3,6 +3,7 @@ import { expect } from 'storybook/test'
 import { TextField } from './TextField'
 
 const meta = {
+  title: 'Components/TextField',
   component: TextField,
   tags: ['ai-generated'],
   args: {

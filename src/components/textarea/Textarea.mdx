@@ -1,0 +1,36 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as TextareaStories from './Textarea.stories'
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+여러 줄 텍스트를 입력받습니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={TextareaStories.Playground} />
+
+    - `rows`로 기본 높이를 정하고 사용자가 세로로 늘릴 수 있게 둡니다.
+    - `showCount`는 `maxLength`와 함께 써야 표시됩니다.
+    - `error`를 넘기면 `aria-invalid`가 켜지고 설명이 오류 문구로 바뀝니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="도움말">
+      <Canvas of={TextareaStories.WithHelperText} />
+    </DocsSection>
+    <DocsSection title="오류 상태">
+      <Canvas of={TextareaStories.ErrorState} />
+    </DocsSection>
+    <DocsSection title="비활성">
+      <Canvas of={TextareaStories.Disabled} />
+    </DocsSection>
+    <DocsSection title="글자 수">
+      <Canvas of={TextareaStories.WithCount} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

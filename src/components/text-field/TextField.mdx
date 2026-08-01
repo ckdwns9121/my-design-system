@@ -1,0 +1,30 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as TextFieldStories from './TextField.stories'
+
+<Meta of={TextFieldStories} />
+
+# TextField
+
+한 줄 값을 입력받습니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={TextFieldStories.Default} />
+
+    - `label`은 필수입니다. placeholder로 라벨을 대신하지 않습니다.
+    - `error`를 넘기면 `aria-invalid`가 켜지고 설명이 오류 문구로 바뀝니다.
+    - 여러 줄 입력에는 Textarea를 사용합니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="도움말">
+      <Canvas of={TextFieldStories.WithHelperText} />
+    </DocsSection>
+    <DocsSection title="오류 상태">
+      <Canvas of={TextFieldStories.ErrorState} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>

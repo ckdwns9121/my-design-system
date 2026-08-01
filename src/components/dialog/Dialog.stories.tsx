@@ -12,6 +12,7 @@ import {
 } from './Dialog'
 
 const meta = {
+  title: 'Components/Dialog',
   component: DialogRoot,
   tags: ['ai-generated'],
   parameters: {

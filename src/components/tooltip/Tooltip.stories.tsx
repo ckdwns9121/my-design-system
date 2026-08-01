@@ -8,6 +8,7 @@ import {
 } from './Tooltip'
 
 const meta = {
+  title: 'Components/Tooltip',
   component: TooltipRoot,
   tags: ['ai-generated'],
   args: {

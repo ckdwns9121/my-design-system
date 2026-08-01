@@ -1,0 +1,33 @@
+import { ArgTypes, Canvas, Meta } from '@storybook/addon-docs/blocks'
+import { DocsSection, DocsTab, DocsTabs } from '../../docs/DocsTabs'
+import * as CheckboxStories from './Checkbox.stories'
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+독립적인 선택을 켜고 끕니다.
+
+<DocsTabs>
+  <DocsTab value="overview">
+    <Canvas of={CheckboxStories.Unchecked} />
+
+    - 서로 배타적인 선택에는 RadioGroup을 사용합니다.
+    - 하위 항목이 일부만 선택된 상태는 `indeterminate`로 표현합니다. 이때 `aria-checked`는 `mixed`가 됩니다.
+    - 네이티브 `input[type=checkbox]` 위에 스타일만 얹어 폼 제출과 키보드 동작을 그대로 유지합니다.
+  </DocsTab>
+  <DocsTab value="properties">
+    <ArgTypes />
+  </DocsTab>
+  <DocsTab value="styles">
+    <DocsSection title="선택됨">
+      <Canvas of={CheckboxStories.Checked} />
+    </DocsSection>
+    <DocsSection title="부분 선택">
+      <Canvas of={CheckboxStories.Indeterminate} />
+    </DocsSection>
+    <DocsSection title="비활성">
+      <Canvas of={CheckboxStories.Disabled} />
+    </DocsSection>
+  </DocsTab>
+</DocsTabs>
