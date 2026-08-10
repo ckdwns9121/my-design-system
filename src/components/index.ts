@@ -162,6 +162,10 @@ export type {
   SelectTriggerProps,
   SelectValueProps,
 } from './select'
+export { Separator } from './separator'
+export type { SeparatorProps } from './separator'
+export { Skeleton, SkeletonText } from './skeleton'
+export type { SkeletonProps, SkeletonTextProps } from './skeleton'
 export { Switch } from './switch'
 export type { SwitchProps } from './switch'
 export { TextField } from './text-field'
@@ -218,5 +222,7 @@ export type {
   ToastTone,
   ToastViewportProps,
 } from './toast'
+export { VisuallyHidden } from './visually-hidden'
+export type { VisuallyHiddenProps } from './visually-hidden'
 export { ToggleButton } from './toggle-button'
 export type { ToggleButtonProps } from './toggle-button'
