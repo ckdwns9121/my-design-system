@@ -3,7 +3,7 @@
   "name": "headless-core-design-system",
   "generatedFrom": "src/components/**/*.doc.ts",
   "counts": {
-    "components": 30,
+    "components": 34,
     "headless": 16
   },
   "categories": [
@@ -554,6 +554,97 @@
       "docs": "Components/EmptyState"
     },
     {
+      "name": "Grid",
+      "category": "Data display",
+      "summary": "요소를 열로 나누고 좁은 화면에서 한 열로 접습니다.",
+      "keywords": [
+        "grid",
+        "그리드",
+        "열",
+        "columns",
+        "layout",
+        "레이아웃",
+        "responsive"
+      ],
+      "import": "src/components",
+      "exports": [
+        "Grid"
+      ],
+      "rules": [
+        "columns는 sm 이상에서 적용되고 그 아래에서는 한 열입니다. 호출하는 쪽마다 브레이크포인트를 반복하지 않기 위한 기본값입니다.",
+        "gap은 값이 아니라 단계입니다.",
+        "열 배치가 아니라 한 방향 흐름이면 Stack을 씁니다.",
+        "행과 열에 데이터 의미가 있으면 Grid가 아니라 Table입니다."
+      ],
+      "related": [
+        {
+          "name": "Stack",
+          "when": "한 방향으로만 쌓을 때"
+        },
+        {
+          "name": "Table",
+          "when": "행과 열이 데이터를 뜻할 때"
+        }
+      ],
+      "overviewStory": "Columns",
+      "styleStories": [
+        {
+          "title": "카드 배치",
+          "story": "WithCards"
+        },
+        {
+          "title": "좁은 화면",
+          "story": "CollapsesOnNarrowScreens"
+        }
+      ],
+      "source": "src/components/grid",
+      "docs": "Components/Grid"
+    },
+    {
+      "name": "Heading",
+      "category": "Data display",
+      "summary": "제목의 문서 순위와 시각 크기를 따로 정합니다.",
+      "keywords": [
+        "heading",
+        "title",
+        "제목",
+        "헤딩",
+        "h1",
+        "h2",
+        "section title",
+        "typography"
+      ],
+      "import": "src/components",
+      "exports": [
+        "Heading"
+      ],
+      "rules": [
+        "level은 원하는 크기가 아니라 문서 구조에서 고릅니다. 스크린리더 사용자는 제목 순위로 화면을 이동합니다.",
+        "크기가 안 맞으면 level을 건드리지 말고 size로 조절합니다. h2가 커 보인다고 h3으로 내리면 구조가 깨집니다.",
+        "순위를 건너뛰지 않습니다. h1 다음은 h2입니다.",
+        "한 화면에 h1은 하나입니다."
+      ],
+      "related": [
+        {
+          "name": "Text",
+          "when": "본문일 때"
+        }
+      ],
+      "overviewStory": "Levels",
+      "styleStories": [
+        {
+          "title": "순위와 크기 분리",
+          "story": "SizeSeparateFromLevel"
+        },
+        {
+          "title": "구조 유지",
+          "story": "KeepsTheOutline"
+        }
+      ],
+      "source": "src/components/heading",
+      "docs": "Components/Heading"
+    },
+    {
       "name": "IconButton",
       "category": "Form",
       "summary": "아이콘만으로 명령을 실행합니다.",
@@ -1086,6 +1177,62 @@
       "docs": "Components/Skeleton"
     },
     {
+      "name": "Stack",
+      "category": "Data display",
+      "summary": "요소를 한 방향으로 쌓고 간격을 spacing scale로 고정합니다.",
+      "keywords": [
+        "stack",
+        "flex",
+        "스택",
+        "간격",
+        "gap",
+        "vstack",
+        "hstack",
+        "flexbox",
+        "layout"
+      ],
+      "import": "src/components",
+      "exports": [
+        "Stack"
+      ],
+      "rules": [
+        "gap은 값이 아니라 단계입니다. 임의 간격이 필요하면 className으로 넘기되, 그건 예외로 보이는 게 목적입니다.",
+        "묶음에 의미가 있으면 as로 요소를 바꿉니다. 목록은 ul, 내비게이션은 nav입니다.",
+        "한 방향으로만 흐르는 배치에 씁니다. 열이 필요하면 Grid를 씁니다."
+      ],
+      "related": [
+        {
+          "name": "Grid",
+          "when": "여러 열로 나눠야 할 때"
+        },
+        {
+          "name": "Separator",
+          "when": "묶음 사이에 선이 필요할 때"
+        }
+      ],
+      "overviewStory": "Playground",
+      "styleStories": [
+        {
+          "title": "가로",
+          "story": "Row"
+        },
+        {
+          "title": "간격 단계",
+          "story": "Gaps"
+        },
+        {
+          "title": "양끝 정렬",
+          "story": "SpaceBetween"
+        },
+        {
+          "title": "목록으로",
+          "story": "AsList"
+        }
+      ],
+      "source": "src/components/stack",
+      "docs": "Components/Stack"
+    },
+    {
       "name": "Switch",
       "category": "Form",
       "summary": "설정을 즉시 켜고 끕니다.",
@@ -1268,6 +1415,62 @@
       ],
       "source": "src/components/tabs",
       "docs": "Components/Tabs"
+    },
+    {
+      "name": "Text",
+      "category": "Data display",
+      "summary": "본문 텍스트를 type scale과 content 토큰 안에서 씁니다.",
+      "keywords": [
+        "text",
+        "typography",
+        "본문",
+        "텍스트",
+        "paragraph",
+        "body",
+        "copy",
+        "font"
+      ],
+      "import": "src/components",
+      "exports": [
+        "Text"
+      ],
+      "rules": [
+        "size와 line-height는 함께 움직입니다. 따로 지정하는 prop이 없습니다.",
+        "tone은 content 토큰 단계입니다. 임의 색을 넣지 않습니다.",
+        "문단이 아니라 인라인 강조면 as=\"span\"으로 바꿉니다. p 안에 p를 넣으면 안 됩니다.",
+        "제목에는 Heading을 씁니다. Text를 크게 만들어 제목처럼 쓰면 문서 구조가 비어버립니다."
+      ],
+      "related": [
+        {
+          "name": "Heading",
+          "when": "제목일 때"
+        },
+        {
+          "name": "VisuallyHidden",
+          "when": "화면에는 감추고 읽히게만 할 때"
+        }
+      ],
+      "overviewStory": "Sizes",
+      "styleStories": [
+        {
+          "title": "색",
+          "story": "Tones"
+        },
+        {
+          "title": "굵기",
+          "story": "Weights"
+        },
+        {
+          "title": "한 줄 자르기",
+          "story": "Truncated"
+        },
+        {
+          "title": "인라인",
+          "story": "Inline"
+        }
+      ],
+      "source": "src/components/text",
+      "docs": "Components/Text"
     },
     {
       "name": "Textarea",
