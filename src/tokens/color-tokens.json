@@ -18,6 +18,7 @@
       "100": "#f1f5f9",
       "200": "#e2e8f0",
       "300": "#cbd5e1",
+      "400": "#94a3b8",
       "500": "#64748b",
       "600": "#475569",
       "700": "#334155",
@@ -28,14 +29,22 @@
     "amber": {
       "50": "#fffbeb",
       "100": "#fef3c7",
+      "300": "#fcd34d",
+      "400": "#fbbf24",
       "600": "#d97706",
-      "700": "#b45309"
+      "700": "#b45309",
+      "900": "#78350f",
+      "950": "#451a03"
     },
     "red": {
       "50": "#fef2f2",
       "100": "#fee2e2",
+      "300": "#fca5a5",
+      "400": "#f87171",
       "600": "#dc2626",
-      "700": "#b91c1c"
+      "700": "#b91c1c",
+      "900": "#7f1d1d",
+      "950": "#450a0a"
     },
     "white": {
       "DEFAULT": "#ffffff"
@@ -93,6 +102,60 @@
     },
     "focus": {
       "default": "{primitive.green.700}"
+    }
+  },
+  "semanticDark": {
+    "primary": {
+      "surface": "{primitive.green.950}",
+      "surface-strong": "{primitive.green.900}",
+      "solid": "{primitive.green.500}",
+      "solid-hover": "{primitive.green.400}",
+      "text": "{primitive.green.400}",
+      "text-strong": "{primitive.green.300}",
+      "on-solid": "{primitive.slate.950}",
+      "ring": "{primitive.green.500}"
+    },
+    "surface": {
+      "canvas": "{primitive.slate.950}",
+      "panel": "{primitive.slate.900}",
+      "muted": "{primitive.slate.800}",
+      "raised": "{primitive.slate.800}",
+      "inverse": "{primitive.slate.50}",
+      "overlay": "{primitive.slate.950}"
+    },
+    "content": {
+      "strong": "{primitive.slate.50}",
+      "default": "{primitive.slate.200}",
+      "muted": "{primitive.slate.400}",
+      "subtle": "{primitive.slate.500}",
+      "inverse": "{primitive.slate.950}"
+    },
+    "border": {
+      "default": "{primitive.slate.700}",
+      "muted": "{primitive.slate.800}",
+      "strong": "{primitive.slate.500}"
+    },
+    "status": {
+      "success": {
+        "surface": "{primitive.green.950}",
+        "text": "{primitive.green.400}",
+        "ring": "{primitive.green.500}"
+      },
+      "warning": {
+        "surface": "{primitive.amber.950}",
+        "text": "{primitive.amber.300}",
+        "ring": "{primitive.amber.400}"
+      },
+      "danger": {
+        "surface": "{primitive.red.950}",
+        "solid": "{primitive.red.400}",
+        "solid-hover": "{primitive.red.300}",
+        "text": "{primitive.red.400}",
+        "ring": "{primitive.red.500}"
+      }
+    },
+    "focus": {
+      "default": "{primitive.green.500}"
     }
   }
 }

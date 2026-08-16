@@ -7,7 +7,9 @@ const names = (results) => results.map((result) => result.name)
 
 describe('mcp search', () => {
   it('indexes components, icons, and tokens', () => {
-    expect(index.components).toHaveLength(27)
+    // Exact, so adding or dropping a component is a deliberate edit here rather
+    // than a silent change in what agents can find.
+    expect(index.components).toHaveLength(35)
     expect(index.icons).toHaveLength(37)
     expect(index.tokens.length).toBeGreaterThan(50)
   })

@@ -32,7 +32,7 @@ export function ComboboxInput({ className, ...props }: ComboboxInputProps) {
   return (
     <HeadlessInput
       className={cn(
-        'h-10 w-full min-w-56 rounded-md border border-border-default bg-surface-panel px-3 text-sm text-content-strong outline-none transition',
+        'h-10 w-full min-w-56 rounded-md border border-border-strong bg-surface-panel px-3 text-sm text-content-strong outline-none transition',
         'placeholder:text-content-subtle focus:border-primary-solid focus:ring-2 focus:ring-primary-ring/20',
         'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
         className,

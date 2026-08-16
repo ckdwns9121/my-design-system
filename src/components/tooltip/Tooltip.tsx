@@ -25,7 +25,7 @@ export function TooltipTrigger({ className, ...props }: TooltipTriggerProps) {
   return (
     <HeadlessTooltipTrigger
       className={cn(
-        'inline-flex h-9 items-center justify-center rounded-md border border-border-default bg-surface-panel px-3 text-sm font-medium text-content-default transition-colors',
+        'inline-flex h-9 items-center justify-center rounded-md border border-border-strong bg-surface-panel px-3 text-sm font-medium text-content-default transition-colors',
         'hover:bg-surface-muted hover:text-content-strong',
         'data-[state=open]:border-primary-solid data-[state=open]:text-primary-text-strong',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-default focus-visible:ring-offset-2',

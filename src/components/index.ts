@@ -101,6 +101,10 @@ export type {
   DropdownMenuSeparatorProps,
   DropdownMenuTriggerProps,
 } from './dropdown-menu'
+export { Grid } from './grid'
+export type { GridProps } from './grid'
+export { Heading } from './heading'
+export type { HeadingProps } from './heading'
 export { EmptyState } from './empty-state'
 export type { EmptyStateProps } from './empty-state'
 export { Loading } from './loading'
@@ -162,6 +166,12 @@ export type {
   SelectTriggerProps,
   SelectValueProps,
 } from './select'
+export { Separator } from './separator'
+export type { SeparatorProps } from './separator'
+export { Skeleton, SkeletonText } from './skeleton'
+export type { SkeletonProps, SkeletonTextProps } from './skeleton'
+export { Stack } from './stack'
+export type { SpacingStep, StackProps } from './stack'
 export { Switch } from './switch'
 export type { SwitchProps } from './switch'
 export { TextField } from './text-field'
@@ -210,6 +220,8 @@ export type {
   TooltipRootProps,
   TooltipTriggerProps,
 } from './tooltip'
+export { ThemeProvider, ThemeToggle } from './theme'
+export type { ThemeProviderProps, ThemeToggleProps } from './theme'
 export { ToastProvider, ToastViewport, useToast } from './toast'
 export type {
   StyledToast,
@@ -218,5 +230,9 @@ export type {
   ToastTone,
   ToastViewportProps,
 } from './toast'
+export { Text } from './text'
+export type { TextProps } from './text'
+export { VisuallyHidden } from './visually-hidden'
+export type { VisuallyHiddenProps } from './visually-hidden'
 export { ToggleButton } from './toggle-button'
 export type { ToggleButtonProps } from './toggle-button'

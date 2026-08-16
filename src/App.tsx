@@ -18,6 +18,10 @@ import {
 } from './components/table'
 import { TextField } from './components/text-field'
 import { ToggleButton } from './components/toggle-button'
+import { Grid } from './components/grid'
+import { Heading } from './components/heading'
+import { Stack } from './components/stack'
+import { Text } from './components/text'
 import { ColorPalette, Spacing, Typography } from './foundation'
 
 function App() {
@@ -27,24 +31,24 @@ function App() {
         <header className="flex flex-col gap-4 border-b border-border-default pb-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="space-y-2">
             <Badge tone="primary">Tailwind + Storybook</Badge>
-            <h1 className="text-3xl font-semibold text-content-strong sm:text-4xl">
+            <Heading className="sm:text-4xl" level={1}>
               My Design System
-            </h1>
-            <p className="max-w-2xl text-sm leading-6 text-content-muted">
+            </Heading>
+            <Text className="max-w-2xl" tone="muted">
               녹색 Primary를 primitive 토큰의 기준으로 두고 semantic 토큰을 통해 컴포넌트에 연결합니다.
-            </p>
+            </Text>
           </div>
-          <div className="flex gap-2">
+          <Stack direction="row" gap={2}>
             <Button>시작하기</Button>
             <Button variant="secondary">문서 보기</Button>
-          </div>
+          </Stack>
         </header>
 
         <ColorPalette />
         <Typography />
         <Spacing />
 
-        <section className="grid gap-4 md:grid-cols-2">
+        <Grid as="section" columns={2}>
           <Card>
             <CardHeader>
               <CardTitle>Components</CardTitle>
@@ -99,7 +103,7 @@ function App() {
               <Button size="sm" variant="subtle">취소</Button>
             </CardFooter>
           </Card>
-        </section>
+        </Grid>
       </div>
     </main>
   )

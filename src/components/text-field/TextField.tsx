@@ -32,7 +32,7 @@ export function TextField({
         className={cn(
           'h-10 w-full rounded-md border bg-surface-panel px-3 text-sm text-content-strong outline-none transition',
           'placeholder:text-content-subtle focus:border-primary-solid focus:ring-2 focus:ring-primary-ring/20',
-          error ? 'border-status-danger-text' : 'border-border-default',
+          error ? 'border-status-danger-text' : 'border-border-strong',
           className,
         )}
         id={inputId}

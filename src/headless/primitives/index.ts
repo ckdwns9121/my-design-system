@@ -52,6 +52,13 @@ export type {
   ToastRootProps,
   ToastViewportProps,
 } from './toast'
+export { ThemeProvider, useTheme } from './theme'
+export type {
+  ResolvedTheme,
+  ThemeContextValue,
+  ThemePreference,
+  ThemeProviderProps,
+} from './theme'
 export { Switch } from './switch'
 export type { SwitchProps } from './switch'
 export { RadioGroupItem, RadioGroupRoot } from './radio-group'

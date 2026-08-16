@@ -23,7 +23,7 @@ const variantClasses: Record<IconButtonVariant, string> = {
   primary:
     'bg-primary-solid text-primary-on-solid hover:bg-primary-solid-hover focus-visible:ring-focus-default',
   secondary:
-    'border border-border-default bg-surface-panel text-content-default hover:bg-surface-muted hover:text-content-strong focus-visible:ring-focus-default',
+    'border border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted hover:text-content-strong focus-visible:ring-focus-default',
   subtle:
     'bg-transparent text-content-muted hover:bg-surface-muted hover:text-content-strong focus-visible:ring-focus-default',
   danger:

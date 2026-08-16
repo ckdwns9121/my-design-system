@@ -28,7 +28,7 @@ export function PopoverTrigger({ className, ...props }: PopoverTriggerProps) {
   return (
     <HeadlessPopoverTrigger
       className={cn(
-        'inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border-default bg-surface-panel px-4 text-sm font-medium text-content-default transition-colors',
+        'inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border-strong bg-surface-panel px-4 text-sm font-medium text-content-default transition-colors',
         'hover:bg-surface-muted hover:text-content-strong',
         'data-[state=open]:border-primary-solid data-[state=open]:bg-primary-surface data-[state=open]:text-primary-text-strong',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-default focus-visible:ring-offset-2',

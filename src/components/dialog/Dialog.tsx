@@ -38,7 +38,7 @@ const closeVariantClasses: Record<DialogCloseVariant, string> = {
   primary:
     'border-primary-solid bg-primary-solid text-primary-on-solid hover:bg-primary-solid-hover',
   secondary:
-    'border-border-default bg-surface-panel text-content-default hover:bg-surface-muted',
+    'border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted',
 }
 
 export function Dialog(props: DialogRootProps) {

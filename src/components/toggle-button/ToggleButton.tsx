@@ -19,7 +19,7 @@ export function ToggleButton({ className, size = 'md', ...props }: ToggleButtonP
     <HeadlessToggle
       className={cn(
         'inline-flex items-center justify-center gap-2 rounded-md border font-medium transition-colors',
-        'border-border-default bg-surface-panel text-content-muted hover:bg-surface-muted hover:text-content-strong',
+        'border-border-strong bg-surface-panel text-content-muted hover:bg-surface-muted hover:text-content-strong',
         'data-[state=on]:border-primary-solid data-[state=on]:bg-primary-surface-strong data-[state=on]:text-primary-text-strong',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-default focus-visible:ring-offset-2',
         'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
