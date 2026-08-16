@@ -13,7 +13,7 @@ export function Checkbox({ className, disabled, label, ...props }: CheckboxProps
   const checkbox = (
     <HeadlessCheckbox
       className={cn(
-        'size-4 shrink-0 cursor-pointer rounded border border-border-default accent-primary-solid',
+        'size-4 shrink-0 cursor-pointer rounded border border-border-strong accent-primary-solid',
         'bg-surface-panel text-primary-text-strong transition-colors',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-default focus-visible:ring-offset-2',
         'disabled:cursor-not-allowed disabled:opacity-50',

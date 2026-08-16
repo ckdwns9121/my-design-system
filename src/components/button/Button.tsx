@@ -12,7 +12,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-primary-solid text-primary-on-solid hover:bg-primary-solid-hover focus-visible:ring-focus-default',
-  secondary: 'border border-border-default bg-surface-panel text-content-default hover:bg-surface-muted focus-visible:ring-focus-default',
+  secondary: 'border border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted focus-visible:ring-focus-default',
   subtle: 'bg-transparent text-content-muted hover:bg-surface-muted hover:text-content-strong focus-visible:ring-focus-default',
   danger: 'bg-status-danger-solid text-content-inverse hover:bg-status-danger-solid-hover focus-visible:ring-status-danger-ring',
 }

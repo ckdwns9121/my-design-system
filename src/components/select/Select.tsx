@@ -38,7 +38,7 @@ export function SelectTrigger({ className, ...props }: TriggerProps) {
   return (
     <HeadlessTrigger
       className={cn(
-        'inline-flex h-10 min-w-48 items-center justify-between gap-3 rounded-md border border-border-default bg-surface-panel px-3 text-sm font-medium text-content-default shadow-sm transition-colors',
+        'inline-flex h-10 min-w-48 items-center justify-between gap-3 rounded-md border border-border-strong bg-surface-panel px-3 text-sm font-medium text-content-default shadow-sm transition-colors',
         'hover:bg-surface-muted hover:text-content-strong',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-default focus-visible:ring-offset-2',
         'disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',

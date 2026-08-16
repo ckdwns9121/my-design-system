@@ -220,6 +220,8 @@ export type {
   TooltipRootProps,
   TooltipTriggerProps,
 } from './tooltip'
+export { ThemeProvider, ThemeToggle } from './theme'
+export type { ThemeProviderProps, ThemeToggleProps } from './theme'
 export { ToastProvider, ToastViewport, useToast } from './toast'
 export type {
   StyledToast,

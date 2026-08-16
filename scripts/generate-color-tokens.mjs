@@ -46,6 +46,7 @@ function collectLeaves(node, pathParts, kind, leaves = []) {
 
 const primitiveLeaves = collectLeaves(tokens.primitive, ['primitive'], 'primitive')
 const semanticLeaves = collectLeaves(tokens.semantic, ['semantic'], 'semantic')
+const darkLeaves = collectLeaves(tokens.semanticDark ?? {}, ['semantic'], 'semantic')
 
 const lines = [
   '/* This file is generated from src/tokens/color-tokens.json. Do not edit by hand. */',
@@ -59,6 +60,27 @@ const lines = [
   ...semanticLeaves.map(([name, value]) => `  ${name}: ${value};`),
   '}',
   '',
+  /* Dark mode remaps the same semantic names, so components never branch on
+     theme; only the value behind the alias changes.
+
+     Light is emitted as its own block even though `@theme` already puts those
+     values on `:root`. Variables inherit, so once a dark ancestor sets them the
+     values flow into every descendant. A nested light scope needs a rule of its
+     own to put the light values back. */
+  ...(darkLeaves.length > 0
+    ? [
+        '/* Themes. ThemeProvider sets data-theme on the document element, or on a',
+        '   scoped element when one is passed. */',
+        "[data-theme='light'] {",
+        ...semanticLeaves.map(([name, value]) => `  ${name}: ${value};`),
+        '}',
+        '',
+        "[data-theme='dark'] {",
+        ...darkLeaves.map(([name, value]) => `  ${name}: ${value};`),
+        '}',
+        '',
+      ]
+    : []),
 ]
 
 await mkdir(path.dirname(outputPath), { recursive: true })

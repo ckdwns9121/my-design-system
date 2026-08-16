@@ -31,3 +31,6 @@ storybook-static
 
 # Vitest failure screenshots
 **/__screenshots__
+
+# Local agent tooling state
+.omx

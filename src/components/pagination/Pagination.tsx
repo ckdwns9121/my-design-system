@@ -41,7 +41,7 @@ export function Pagination({
             aria-label="이전 페이지"
             className={cn(
               pageButtonClasses,
-              'border-border-default bg-surface-panel text-content-default hover:bg-surface-muted',
+              'border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted',
             )}
             disabled={!pagination.hasPrevious}
             onClick={() => onPageChange(pagination.previousPage)}
@@ -65,7 +65,7 @@ export function Pagination({
                   pageButtonClasses,
                   item.page === pagination.page
                     ? 'border-primary-solid bg-primary-solid font-medium text-primary-on-solid'
-                    : 'border-border-default bg-surface-panel text-content-default hover:bg-surface-muted',
+                    : 'border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted',
                 )}
                 onClick={() => onPageChange(item.page)}
                 type="button"
@@ -81,7 +81,7 @@ export function Pagination({
             aria-label="다음 페이지"
             className={cn(
               pageButtonClasses,
-              'border-border-default bg-surface-panel text-content-default hover:bg-surface-muted',
+              'border-border-strong bg-surface-panel text-content-default hover:bg-surface-muted',
             )}
             disabled={!pagination.hasNext}
             onClick={() => onPageChange(pagination.nextPage)}
